@@ -17,13 +17,11 @@ const Navbar = ({ children }) => {
 			<div className='fixed top-0 w-full'>
 				<div className='bg-white Navbar shadow-lg shadow-gray-100 h-14 z-10'>
 					<div className='nav w-3/4 mx-auto flex justify-between items-center h-full'>
-						<h2 className='logo font-medium'>Logo</h2>
-
+						<h2 className='logo font-bold'>uni-insurance</h2>
 						<div className='links space-x-8 hidden md:block'>
 							<CustomLink to='/'>Home</CustomLink>
 							<CustomLink to='/about'>About us</CustomLink>
 							<CustomLink to='/service'>Services</CustomLink>
-							<CustomLink to='/contact'>Contact</CustomLink>
 
 							{
 								!user ? <button className='btn-primary' onClick={() => navigate('/account')}>Login</button> : <button className='btn-secondary' onClick={() => {
@@ -35,9 +33,8 @@ const Navbar = ({ children }) => {
 
 						</div>
 						<button className='md:hidden text-2xl' onClick={() => setMenu(!menu)}>
-							{
-								!menu ? <CgMenuLeft /> : <CgClose />
-							}
+							<CgMenuLeft className={`${menu ? '-top-8' : 'top-3'} relative transition-all duration-300`} />
+							<CgClose className={`${menu ? '-top-3' : '-top-12'} relative transition-all duration-300`} />
 						</button>
 					</div>
 				</div>
@@ -47,7 +44,6 @@ const Navbar = ({ children }) => {
 						<CustomLink to='/' >Home</CustomLink>
 						<CustomLink to='/about' >About us</CustomLink>
 						<CustomLink to='/service'>Services</CustomLink>
-						<CustomLink to='/contact' >Contact</CustomLink>
 						{
 							!user ? <button className='btn-primary-mob' onClick={() => navigate('/account')}>Login</button> : <button className='btn-secondary-mob' onClick={() => signOut(auth)}>logout</button>
 						}
