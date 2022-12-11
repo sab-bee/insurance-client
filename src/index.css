@@ -9,3 +9,21 @@ html {
 body {
   color: #272a3a
 }
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white shadow-lg shadow-green-200 font-medium rounded-full w-20 py-1 hover:bg-gray-800 hover:shadow-none transition-colors ease-linear;
+  }
+
+  .btn-secondary {
+    @apply border border-gray-500 font-medium rounded-full w-20 py-1  transition-colors ease-linear;
+  }
+
+  .btn-primary-mob {
+    @apply bg-primary text-white shadow-lg shadow-green-200 font-medium rounded-full w-full py-1 hover:bg-gray-800 hover:shadow-none transition-colors ease-linear
+  }
+
+  .btn-secondary-mob {
+    @apply border border-gray-500 font-medium rounded-full w-full py-1  transition-colors ease-linear;
+  }
+}

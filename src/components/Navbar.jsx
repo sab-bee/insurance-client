@@ -1,9 +1,17 @@
 import React, { useState } from 'react'
 import CustomLink from './CustomLink'
 import { CgMenuLeft, CgClose } from "react-icons/cg";
+import { useNavigate } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../auth/firebase.init';
+import { signOut } from 'firebase/auth';
+import { toast } from 'react-hot-toast';
 
 const Navbar = ({ children }) => {
 	const [menu, setMenu] = useState(false)
+	const navigate = useNavigate()
+	const [user] = useAuthState(auth)
+
 	return (
 		<>
 			<div className='fixed top-0 w-full'>
@@ -14,28 +22,41 @@ const Navbar = ({ children }) => {
 						<div className='links space-x-8 hidden md:block'>
 							<CustomLink to='/'>Home</CustomLink>
 							<CustomLink to='/about'>About us</CustomLink>
+							<CustomLink to='/service'>Services</CustomLink>
 							<CustomLink to='/contact'>Contact</CustomLink>
-							<button className='bg-primary text-white shadow-lg shadow-green-200 font-medium rounded-full px-4 py-1 hover:bg-gray-800 hover:shadow-none transition-colors ease-linear'>Login</button>
+
+							{
+								!user ? <button className='btn-primary' onClick={() => navigate('/account')}>Login</button> : <button className='btn-secondary' onClick={() => {
+									signOut(auth)
+									toast('logged out')
+								}
+								}>logout</button>
+							}
+
 						</div>
 						<button className='md:hidden text-2xl' onClick={() => setMenu(!menu)}>
 							{
-								!menu ? <CgMenuLeft/> : <CgClose/>
+								!menu ? <CgMenuLeft /> : <CgClose />
 							}
 						</button>
 					</div>
 				</div>
 
-				<div className={`${!menu ? 'translate-x-full' : 'translate-x-0'} nav-mob md:hidden w-full bg-white transition-all duration-500 h-screen pt-16`}>
+				<div className={`${!menu ? 'left-full' : 'left-0'} absolute md:hidden w-full bg-zinc-50 transition-all duration-500 pt-16 h-screen`}>
 					<div className='flex flex-col text-center space-y-4 w-3/4 mx-auto' onClick={() => setMenu(false)}>
 						<CustomLink to='/' >Home</CustomLink>
 						<CustomLink to='/about' >About us</CustomLink>
+						<CustomLink to='/service'>Services</CustomLink>
 						<CustomLink to='/contact' >Contact</CustomLink>
-						<button className='bg-primary text-white shadow-lg shadow-green-200 font-medium rounded-full px-4 py-1 hover:bg-gray-800 hover:shadow-none transition-colors ease-linear'>Login</button>
+						{
+							!user ? <button className='btn-primary-mob' onClick={() => navigate('/account')}>Login</button> : <button className='btn-secondary-mob' onClick={() => signOut(auth)}>logout</button>
+						}
 					</div>
 				</div>
+
 			</div>
 
-			<div className='Main'>
+			<div className='mt-16'>
 				{children}
 			</div>
 		</>
