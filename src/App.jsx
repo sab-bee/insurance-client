@@ -7,6 +7,7 @@ import Account from './pages/account/Account'
 import Login from './pages/account/Login'
 import Register from './pages/account/Register'
 import Home from './pages/home/Home'
+import Purchase from './pages/services/Purchase'
 import Services from './pages/services/Services'
 
 const App = () => {
@@ -20,9 +21,8 @@ const App = () => {
             <Route index element={<Login />}></Route>
             <Route path='register' element={<Register />}></Route>
           </Route>
-          <Route path='/service' element={<ProtectedRoute><Services /></ProtectedRoute>}>
-  
-          </Route>
+          <Route path='/service' element={<Services />}></Route>
+          <Route path='/purchase/:_id' element={<ProtectedRoute><Purchase /></ProtectedRoute>}></Route>
         </Routes>
       </Navbar>
     </>

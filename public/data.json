@@ -1,0 +1,23 @@
+[
+  {
+    "title": "term plan",
+    "premium": "10",
+    "returns": ["coverage"],
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate id dolorum rem. Nesciunt est quae aliquam, quasi sed voluptatem beatae."
+  },
+  {
+    "title": "life plan",
+    "premium": "60",
+    "returns": ["converage under condition"], "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate id dolorum rem. Nesciunt est quae aliquam, quasi sed voluptatem beatae."
+  },
+  {
+    "title": "endowment plan",
+    "premium": "90",
+    "returns": ["coverage", "interest"], "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate id dolorum rem. Nesciunt est quae aliquam, quasi sed voluptatem beatae."
+  },
+  {
+    "title": "ulip plan",
+    "premium": "120",
+    "returns": ["coverage", "interest"], "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate id dolorum rem. Nesciunt est quae aliquam, quasi sed voluptatem beatae."
+  }
+]

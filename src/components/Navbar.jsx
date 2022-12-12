@@ -14,8 +14,8 @@ const Navbar = ({ children }) => {
 
 	return (
 		<>
-			<div className='fixed top-0 w-full'>
-				<div className='bg-white Navbar shadow-lg shadow-gray-100 h-14 z-10'>
+			<div className='fixed top-0 w-full z-10'>
+				<div className='bg-white Navbar shadow-lg shadow-gray-100 h-14'>
 					<div className='nav w-3/4 mx-auto flex justify-between items-center h-full'>
 						<h2 className='logo font-bold'>uni-insurance</h2>
 						<div className='links space-x-8 hidden md:block'>

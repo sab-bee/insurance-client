@@ -1,7 +1,9 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const SingleService = ({ service }) => {
-  const { title, premium, desc, returns } = service
+  const { title, premium, desc, returns, _id } = service
+  const navigate = useNavigate()
   return (
     <div className='shadow-lg shadow-zinc-100 rounded-lg bg-white hover:scale-105 transition-all duration-300 cursor-pointer overflow-hidden'>
       <img className='object-cover h-[200px] w-full' src="https://picsum.photos/400" alt="thumbnail" />
@@ -14,7 +16,9 @@ const SingleService = ({ service }) => {
         }
         <h2 className='text-3xl font-bold'>${premium}/month</h2>
       </div>
-      <button className='btn-primary w-full rounded-none h-10 md:h-9'>purchase plan</button>
+      <button className='btn-primary w-full rounded-none h-10 md:h-9'
+        onClick={() => navigate(`/purchase/${_id}`)}
+      >purchase plan</button>
     </div>
   )
 }
