@@ -3,21 +3,28 @@
     "title": "term plan",
     "premium": "10",
     "returns": ["coverage"],
-    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate id dolorum rem. Nesciunt est quae aliquam, quasi sed voluptatem beatae."
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate id dolorum rem. Nesciunt est quae aliquam, quasi sed voluptatem beatae.",
+    "coverage" : [10000000, 20000000, 30000000, 40000000]
   },
   {
     "title": "life plan",
     "premium": "60",
-    "returns": ["converage under condition"], "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate id dolorum rem. Nesciunt est quae aliquam, quasi sed voluptatem beatae."
+    "returns": ["converage under condition"], "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate id dolorum rem. Nesciunt est quae aliquam, quasi sed voluptatem beatae.",
+    "coverage" : [10000000, 20000000, 30000000, 40000000]
+
   },
   {
     "title": "endowment plan",
     "premium": "90",
-    "returns": ["coverage", "interest"], "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate id dolorum rem. Nesciunt est quae aliquam, quasi sed voluptatem beatae."
+    "returns": ["coverage", "interest"], "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate id dolorum rem. Nesciunt est quae aliquam, quasi sed voluptatem beatae.",
+    "coverage" : [10000000, 20000000, 30000000, 40000000]
+
   },
   {
     "title": "ulip plan",
     "premium": "120",
-    "returns": ["coverage", "interest"], "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate id dolorum rem. Nesciunt est quae aliquam, quasi sed voluptatem beatae."
+    "returns": ["coverage", "interest"], "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate id dolorum rem. Nesciunt est quae aliquam, quasi sed voluptatem beatae.",
+    "coverage" : [10000000, 20000000, 30000000, 40000000]
+
   }
 ]

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useAuthState, useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from "react-firebase-hooks/auth";
 import { toast } from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
+import { axiosPublic } from "../api/axiosPublic";
 import { auth } from "../auth/firebase.init";
 
 const useFirebase = () => {
@@ -19,6 +20,9 @@ const useFirebase = () => {
     if (user) {
       toast.success('logged in')
       navigate(from, {replace:true})
+      const email = user?.email
+
+      axiosPublic.post(`/account/${email}`, {name: user?.displayName}).then((res) => console.log(res))
     }
   }, [user])
 

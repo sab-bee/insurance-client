@@ -26,7 +26,9 @@ const Navbar = ({ children }) => {
 							{
 								!user ? <button className='btn-primary' onClick={() => navigate('/account')}>Login</button> : <button className='btn-secondary' onClick={() => {
 									signOut(auth)
-									toast('logged out')
+									toast('logged out', {
+										icon : '🙂'
+									})
 								}
 								}>logout</button>
 							}

@@ -1,18 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 html {
   -webkit-tap-highlight-color: transparent;
 }
 
 body {
-  color: #272a3a
+  color: #272a3a;
+  font-family: 'inter', sans-serif;
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-primary text-white shadow-lg shadow-green-200 font-medium rounded-full w-20 py-1 hover:bg-gray-800 hover:shadow-none transition-colors ease-linear;
+    @apply bg-primary text-white shadow-lg shadow-green-200 font-medium rounded-full w-20 py-1 hover:bg-gray-800 hover:shadow-gray-300 transition-all ease-linear;
   }
 
   .btn-secondary {
