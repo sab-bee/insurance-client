@@ -1,6 +1,5 @@
 
 import { RiShieldCheckFill } from "react-icons/ri";
-import { BsPinAngleFill } from "react-icons/bs";
 import { motion } from "framer-motion"
 import { useNavigate } from "react-router-dom";
 
@@ -25,14 +24,14 @@ const Policy = ({ policyPlan, setPolicyPlan }) => {
         <h2 className='text-xl font-medium text-center mb-2'>Policy for this Serivce</h2>
         <p className='mb-2'>You have choose <span className='border-b-2 border-primary capitalize'>{title}</span> service</p>
 
-        <Points point={`premium $${premium}/month`} />
+        <Points point={`premium around $${premium}/month`} />
         <Points point={`${policy.returns}`} />
         <Points point={`${policy.desc}`} />
 
-        <p className='mt-2 space-x-2'>
-          <BsPinAngleFill className='inline-block text-red-500' />
-          <span className='text-sm text-zinc-400 underline'>premium varies according to age and amount of coverage</span>
-        </p>
+        <div className='mt-2 text-xs text-zinc-400 font-normal'>
+          <p>disclaimer :</p>
+          <p className='border-b w-fit'>premium may vary based on financial information</p>
+        </div>
 
         <button className="btn-primary w-full mt-4 rounded"
           onClick={() => navigate(`/subscription/${_id}`)}

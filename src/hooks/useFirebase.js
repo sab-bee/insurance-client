@@ -32,7 +32,10 @@ const useFirebase = () => {
 
       axiosPublic
         .post(`/users/${email}`, { name: user?.displayName })
-        .then((res) => console.log(res));
+        .then((res) => {
+          const token = res.data?.token;
+          localStorage.setItem("token", token);
+        });
     }
   }, [user]);
 
