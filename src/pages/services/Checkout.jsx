@@ -4,27 +4,27 @@ import { useForm } from 'react-hook-form';
 import { axiosPublic } from '../../api/axiosPublic';
 import { auth } from '../../auth/firebase.init';
 import Spinner from '../../components/Spinner';
-import Policy from './Policy';
+import Policy from './PolicyPlan';
 import _ from 'lodash'
 import { AnimatePresence } from "framer-motion"
 
 const Checkout = ({ service }) => {
-  const [policy, setPolicy] = useState({})
-  const { title, premium, returns, desc, coverage, _id } = service
+  const [policyPlan, setPolicyPlan] = useState({})
+  const { title, policy, _id } = service
   const { register, formState: { errors }, handleSubmit } = useForm({ mode: 'onChange' });
   const [user] = useAuthState(auth)
 
   const onSubmit = (data) => {
     const email = user?.email
     const name = user?.displayName
-    axiosPublic.post(`/insurances/${email}`, { ...data, name, service: title }).then((res) => {
-      setPolicy(res.data)
+    axiosPublic.post(`/services/insurance/${email}`, { ...data, userName: name, _id }).then((res) => {
+      setPolicyPlan(res.data)
     })
   }
 
   return (
     <>
-      <div className='w-3/4 mx-auto py-8'>
+      <div className='container py-8'>
         <h2 className='text-center text-2xl font-semibold capitalize'>{title}</h2>
         <form onSubmit={handleSubmit(onSubmit)} className='lg:w-1/5 md:w-2/5 sm:w-1/2 mx-auto space-y-4 my-12'>
           <div className='flex flex-col gap-2'>
@@ -68,7 +68,7 @@ const Checkout = ({ service }) => {
               ...register('coverage')
               }>
               {
-                coverage.map((cov, i) => <option value={cov} key={i}>{cov.toLocaleString()}</option>)
+                policy.coverage.map((cov, i) => <option value={cov} key={i}>{cov.toLocaleString()}</option>)
               }
             </select>
           </div>
@@ -76,14 +76,14 @@ const Checkout = ({ service }) => {
 
           <button className='btn-primary w-full rounded h-10 md:h-9'>
             <span className='flex justify-center'>
-              <Spinner /> get policy
+              <Spinner /> get policy plan
             </span>
           </button>
         </form>
       </div>
       <AnimatePresence>
         {
-          _.isEmpty(policy) || <Policy policy={policy} setPolicy={setPolicy} />
+          _.isEmpty(policyPlan) || <Policy policyPlan={policyPlan} setPolicyPlan={setPolicyPlan} />
         }
       </AnimatePresence>
     </>

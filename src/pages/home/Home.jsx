@@ -6,11 +6,11 @@ const Home = () => {
   return (
     <>
       <div className='content'>
-        <div className='mt-10 md:h-[70vh] flex items-center w-3/4 mx-auto'>
+        <div className='conatiner mt-10 md:h-[70vh] flex items-center '>
           <Banner></Banner>
         </div>
         <div className='bg-zinc-50 py-10'>
-          <div className='w-3/4 mx-auto'>
+          <div className='container'>
             <Moto></Moto>
           </div>
         </div>

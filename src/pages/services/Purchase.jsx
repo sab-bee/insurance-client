@@ -6,7 +6,7 @@ import Checkout from './Checkout'
 
 const Purchase = () => {
   const { _id } = useParams()
-  const { data: service, isLoading, refetch, isError } = useQuery(['service'], () => axiosPublic(`/service/${_id}`).then((res) => res.data))
+  const { data: service, isLoading, refetch, isError } = useQuery(['service'], () => axiosPublic(`/services/service/${_id}`).then((res) => res.data))
 
   if (isLoading) return
   return (

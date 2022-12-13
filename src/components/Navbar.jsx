@@ -16,7 +16,7 @@ const Navbar = ({ children }) => {
 		<>
 			<div className='fixed top-0 w-full z-10'>
 				<div className='bg-white Navbar shadow-lg shadow-gray-100 h-14'>
-					<div className='nav w-3/4 mx-auto flex justify-between items-center h-full'>
+					<div className='container flex justify-between items-center h-full'>
 						<h2 className='logo font-bold'>uni-insurance</h2>
 						<div className='links space-x-8 hidden md:block'>
 							<CustomLink to='/'>Home</CustomLink>
@@ -42,7 +42,7 @@ const Navbar = ({ children }) => {
 				</div>
 
 				<div className={`${!menu ? 'left-full' : 'left-0'} absolute md:hidden w-full bg-zinc-50 transition-all duration-500 pt-16 h-screen`}>
-					<div className='flex flex-col text-center space-y-4 w-3/4 mx-auto' onClick={() => setMenu(false)}>
+					<div className='conatainer flex flex-col text-center space-y-4 ' onClick={() => setMenu(false)}>
 						<CustomLink to='/' >Home</CustomLink>
 						<CustomLink to='/about' >About us</CustomLink>
 						<CustomLink to='/service'>Services</CustomLink>

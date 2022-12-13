@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const SingleService = ({ service }) => {
-  const { title, premium, desc, returns, _id } = service
+  const { title, minPremium, policy, _id } = service
   const navigate = useNavigate()
   return (
     <div className='shadow-lg shadow-zinc-100 rounded-lg bg-white hover:scale-105 transition-all duration-300 cursor-pointer overflow-hidden'>
@@ -12,14 +12,14 @@ const SingleService = ({ service }) => {
         <h2 className='text-xl font-bold capitalize'>{title}</h2>
         <p className='underline'>facilities</p>
         {
-          returns.map((ret, i) => <span className='text-primary font-medium' key={i}>{ret}, </span>)
+          <span className='text-primary font-medium'>{policy.returns}</span>
         }
 
         <div className=''>
           <p className='underline'>starting range</p>
           <h2 className='text-center text-sm font-medium mt-4'>
             <span className='text-2xl'>$</span>
-            <span className='text-5xl font-bold'>{premium}</span>/month
+            <span className='text-5xl font-bold'>{minPremium}</span>/month
           </h2>
         </div>
       </div>

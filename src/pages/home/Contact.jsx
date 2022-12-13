@@ -2,7 +2,7 @@ import React from 'react'
 
 const Contact = () => {
   return (
-    <div className='grid grid-cols-1 md:grid-cols-3 justify-items-center w-3/4 mx-auto items-center gap-y-4'>
+    <div className='container grid grid-cols-1 md:grid-cols-3 justify-items-center items-center gap-y-4'>
       <ViaEmail />
       <ViaPhone />
     </div>
