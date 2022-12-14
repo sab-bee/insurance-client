@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 html {
   -webkit-tap-highlight-color: transparent;
@@ -11,12 +10,12 @@ html {
 
 body {
   color: #272a3a;
-  font-family: 'inter', sans-serif;
+  font-family: "inter", sans-serif;
 }
 
 @layer components {
   .container {
-    @apply w-3/4 mx-auto
+    @apply w-3/4 mx-auto;
   }
 
   .btn-primary {
@@ -24,11 +23,15 @@ body {
   }
 
   .btn-secondary {
-    @apply border border-gray-500 font-medium rounded-full w-20 py-1  transition-colors ease-linear;
+    @apply bg-red-400 shadow-lg text-white font-medium rounded-full w-20 py-1 shadow-red-200 hover:bg-gray-800 hover:shadow-gray-300 transition-colors ease-linear;
+  }
+
+  .btn-neutral {
+    @apply border-2 shadow-lg font-medium rounded-full w-20 py-1 shadow-gray-200 hover:bg-gray-50  transition-colors ease-linear;
   }
 
   .btn-primary-mob {
-    @apply bg-primary text-white shadow-lg shadow-green-200 font-medium rounded-full w-full py-1 hover:bg-gray-800 hover:shadow-none transition-colors ease-linear
+    @apply bg-primary text-white shadow-lg shadow-green-200 font-medium rounded-full w-full py-1 hover:bg-gray-800 hover:shadow-none transition-colors ease-linear;
   }
 
   .btn-secondary-mob {

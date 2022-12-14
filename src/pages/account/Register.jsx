@@ -18,47 +18,66 @@ const Register = () => {
 
       {/* ----------------name */}
       <div className='flex flex-col gap-2'>
-        <label htmlFor="name" className='font-medium'>Name</label>
+        <label htmlFor="name" className='font-medium'>
+          <div className='flex'>
+            <p>Name</p>
+            {
+              errors.name && <p className='text-red-500'>*</p>
+            }
+          </div>
+        </label>
         <input className='p-2 h-10 md:h-9 border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded' type="text" placeholder='enter name'
           {...register("name", {
-            required: "Name is required",
+            required: true,
           })}
         />
-        <p className='text-red-500'>{errors.name?.message}</p>
       </div>
 
       {/* -----------email */}
       <div className='flex flex-col gap-2'>
-        <label htmlFor="email" className='font-medium'>Email</label>
+        <label htmlFor="email" className='font-medium'>
+          <div className='flex'>
+            <p>Email</p>
+            {
+              errors.email && <p className='text-red-500'>*</p>
+            }
+            <p className='text-red-500'>{errors.email?.message}</p>
+          </div>
+        </label>
         <input className='p-2 h-10 md:h-9 border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded' type="email" placeholder='enter email address'
           {...register("email", {
-            required: "Email Address is required",
+            required: true,
             pattern: {
               value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
               message: 'invalid email',
             },
           })}
         />
-        <p className='text-red-500'>{errors.email?.message}</p>
       </div>
 
       {/* ---------------password */}
       <div className='flex flex-col gap-2'>
-        <label htmlFor="password" className='font-medium'>Password</label>
+        <label htmlFor="password" className='font-medium'>
+          <div className='flex'>
+            <p>Password</p>
+            {
+              errors.password && <p className='text-red-500'>*</p>
+            }
+          </div>
+        </label>
         <input className='p-2 h-10 md:h-9 border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded' type="password" placeholder='enter password'
           {...register('password', {
-            required: 'you must secify password',
+            required: true,
           })} />
-        <p className='text-red-500'>{errors.password?.message}</p>
       </div>
 
       {/* -------------actions */}
       <button className='btn-primary w-full rounded h-10 md:h-9'>
         <span className='flex justify-center'>
-          <Spinner loading={create.cLoading} /> login
+          <Spinner loading={create.cLoading} /> register
         </span>
       </button>
-      <button type='button' className='text-2xl bg-primary p-2 md:p-1 rounded-full text-white w-fit mx-auto block' onClick={() => navigate('/account')}><IoArrowBack /></button>
+      <button type='button' className='btn-neutral text-2xl p-2 md:p-1 rounded-full w-fit mx-auto block' onClick={() => navigate('/account')}><IoArrowBack /></button>
     </form>
   )
 }
