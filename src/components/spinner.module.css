@@ -1,0 +1,16 @@
+.spinner {
+  width: 25px;
+  overflow: visible;
+  margin-right: 2px;
+}
+.spinner circle {
+  stroke: rgb(255, 255, 255);
+  transform-origin: 50px 50px;
+  animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

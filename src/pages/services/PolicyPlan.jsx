@@ -35,7 +35,7 @@ const Policy = ({ policyPlan, setPolicyPlan }) => {
 
         <button className="btn-primary w-full mt-4 rounded"
           onClick={() => navigate(`/subscription/${_id}`)}
-        >get subscribtion</button>
+        >get subscription</button>
       </motion.div>
     </motion.div >
   )

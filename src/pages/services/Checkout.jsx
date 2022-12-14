@@ -10,14 +10,17 @@ import { AnimatePresence } from "framer-motion"
 
 const Checkout = ({ service }) => {
   const [policyPlan, setPolicyPlan] = useState({})
+  const [loading, setLoading] = useState(false)
   const { title, policy, _id } = service
   const { register, formState: { errors }, handleSubmit } = useForm({ mode: 'onChange' });
   const [user] = useAuthState(auth)
 
   const onSubmit = (data) => {
+    setLoading(true)
     const email = user?.email
     const name = user?.displayName
     axiosPublic.post(`/service/insurance/${email}`, { ...data, userName: name, _id }).then((res) => {
+      setLoading(false)
       setPolicyPlan(res.data)
     })
   }
@@ -38,7 +41,7 @@ const Checkout = ({ service }) => {
                 <span>age</span>
                 {errors.userAge && <p className='text-red-500'>*</p>}
                 {
-                  (errors.userAge?.type === 'min' || errors.userAge?.type === 'max') && <p className='text-red-500 text-xs'>between 25-60 y/o</p>
+                  (errors.userAge?.type === 'min' || errors.userAge?.type === 'max') && <p className='text-red-500 text-sm'>between 25-60 y/o</p>
                 }
               </span>
             </label>
@@ -76,7 +79,7 @@ const Checkout = ({ service }) => {
 
           <button className='btn-primary w-full rounded h-10 md:h-9'>
             <span className='flex justify-center'>
-              <Spinner /> get policy plan
+              <Spinner loading={loading} /> get policy plan
             </span>
           </button>
         </form>

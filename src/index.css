@@ -35,6 +35,6 @@ body {
   }
 
   .btn-secondary-mob {
-    @apply border border-gray-500 font-medium rounded-full w-full py-1  transition-colors ease-linear;
+    @apply bg-red-400 shadow-lg shadow-red-200 text-white font-medium rounded-full w-full py-1  transition-colors ease-linear;
   }
 }

@@ -1,0 +1,60 @@
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+.load_container {
+  position: relative;
+  display: inline-block;
+  width: 130px;
+  height: 130px;
+  overflow: hidden;
+  letter-spacing: normal;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.linespinner {
+  width: 7px;
+  height: 7px;
+  background: #1add97;
+  position: relative;
+  animation: linespinner 1.25s ease-in-out infinite;
+  animation-delay: 0.4s;
+  border-radius: 10px;
+}
+.linespinner:after,
+.linespinner:before {
+  border-radius: 10px;
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background: #1add97;
+  animation: linespinner 1.25s ease-in-out infinite;
+}
+.linespinner:before {
+  right: 18px;
+  animation-delay: 0.15s;
+}
+.linespinner:after {
+  left: 18px;
+  animation-delay: 0.6s;
+}
+
+@keyframes linespinner {
+  0%,
+  100% {
+    background-color: #1add97;
+    box-shadow: 0 0 0 #1add97, 0 0 0 #1add97;
+  }
+  50% {
+    background-color: #12ec9c;
+    box-shadow: 0 -15px 0 #12ec9c, 0 15px 0 #12ec9c;
+  }
+}

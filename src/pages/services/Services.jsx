@@ -1,9 +1,10 @@
+import Loader from "../../components/Loader"
 import useServices from "../../hooks/useServices"
 import SingleService from "./SingleService"
 
 const Services = () => {
   const { services, isLoading, refetch } = useServices()
-  if (isLoading) return
+  if (isLoading) return <Loader />
   return (
     <div className="bg-zinc-50 h-screen">
       <div className="container py-6 md:py-12">
@@ -14,7 +15,6 @@ const Services = () => {
           }
         </div>
       </div>
-
     </div>
   )
 }

@@ -41,7 +41,7 @@ const Register = () => {
             {
               errors.email && <p className='text-red-500'>*</p>
             }
-            <p className='text-red-500'>{errors.email?.message}</p>
+            <p className='text-red-500 text-sm'>{errors.email?.message}</p>
           </div>
         </label>
         <input className='p-2 h-10 md:h-9 border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded' type="email" placeholder='enter email address'

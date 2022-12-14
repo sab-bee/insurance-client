@@ -5,7 +5,7 @@ const SingleService = ({ service }) => {
   const { title, minPremium, policy, _id } = service
   const navigate = useNavigate()
   return (
-    <div className='shadow-lg shadow-zinc-100 rounded-lg bg-white hover:scale-105 transition-all duration-300 cursor-pointer overflow-hidden'>
+    <div className='shadow-lg shadow-zinc-200 rounded-lg bg-white hover:scale-105 transition-all duration-300 cursor-pointer overflow-hidden'>
       <img className='object-cover h-[200px] w-full' src="https://picsum.photos/400" alt="thumbnail" />
 
       <div className='p-6 space-y-4'>
