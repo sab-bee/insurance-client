@@ -17,7 +17,7 @@ const Checkout = ({ service }) => {
   const onSubmit = (data) => {
     const email = user?.email
     const name = user?.displayName
-    axiosPublic.post(`/services/insurance/${email}`, { ...data, userName: name, _id }).then((res) => {
+    axiosPublic.post(`/service/insurance/${email}`, { ...data, userName: name, _id }).then((res) => {
       setPolicyPlan(res.data)
     })
   }

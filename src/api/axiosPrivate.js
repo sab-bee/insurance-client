@@ -3,8 +3,8 @@ import { signOut } from "firebase/auth";
 import { auth } from "../auth/firebase.init";
 
 export const axiosPrivate = axios.create({
-  // baseURL: 'https://insurance-server-production.up.railway.app' || 'http://192.168.1.105:3000'
-  baseURL: "http://192.168.1.105:3000",
+  baseURL: 'https://mongoosetest-production.up.railway.app'
+  // baseURL: "http://192.168.1.105:3000",
 });
 
 axiosPrivate.interceptors.request.use(
