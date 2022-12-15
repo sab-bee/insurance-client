@@ -33,7 +33,7 @@ const EstimatePolicy = ({ policyPlan, setPolicyPlan }) => {
           <p className='border-b w-fit'>premium may vary based on financial information</p>
         </div>
 
-        <button className="btn-primary-md w-full mt-4 rounded"
+        <button className="btn-primary-md h-10 w-full mt-4 rounded"
           onClick={() => navigate(`/subscription/${_id}`)}
         >get subscription</button>
       </motion.div>

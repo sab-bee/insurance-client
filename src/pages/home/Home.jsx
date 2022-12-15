@@ -7,7 +7,7 @@ import Moto from './Moto'
 const Home = () => {
   return (
     <>
-      <div className='content'>
+      <div className='content pt-4 md:pt-0'>
         <div className='container mt-10 md:h-[70vh] flex items-center '>
           <Banner></Banner>
         </div>
@@ -16,7 +16,7 @@ const Home = () => {
             <Moto></Moto>
           </div>
         </div>
-        <div className='bg-primary py-10'>
+        <div className='bg-secondary py-10'>
           <Contact></Contact>
         </div>
       </div>

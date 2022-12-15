@@ -17,14 +17,16 @@ const Navbar = ({ children }) => {
 			<div className='fixed top-0 w-full z-10'>
 				<div className='bg-white Navbar shadow-lg shadow-gray-100 h-20'>
 					<div className='container flex justify-between items-center h-full'>
-						<button className='font-bold' onClick={() => navigate('/')}>uni-insurance</button>
+						<button className='font-bold' onClick={() => navigate('/')}>
+							<img className='w-10' src="https://i.ibb.co/StpPqfp/growth.png" alt="logo" />
+						</button>
 						<div className='links space-x-8 hidden md:block'>
 							<CustomLink to='/'>Home</CustomLink>
 							<CustomLink to='/about'>About us</CustomLink>
 							<CustomLink to='/service'>Services</CustomLink>
 
 							{
-								!user ? <button className='btn-primary-md' onClick={() => navigate('/account')}>Login</button> : <button className='btn-secondary' onClick={() => {
+								!user ? <button className='btn-primary-md' onClick={() => navigate('/account')}>Login</button> : <button className='btn-secondary-md' onClick={() => {
 									signOut(auth)
 									toast('logged out', {
 										icon: '🙂'
@@ -34,7 +36,7 @@ const Navbar = ({ children }) => {
 							}
 
 						</div>
-						<button className='md:hidden text-2xl' onClick={() => setMenu(!menu)}>
+						<button className='md:hidden text-2xl text-primary' onClick={() => setMenu(!menu)}>
 							<CgMenuLeft className={`${menu ? '-top-9' : 'top-3'} relative transition-all duration-300`} />
 							<CgClose className={`${menu ? '-top-3' : '-top-16'} relative transition-all duration-300`} />
 						</button>

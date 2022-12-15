@@ -51,7 +51,7 @@ const SubmitForm = ({ service }) => {
     axiosPrivate.post('/service/package', { ...data, coverage, yearlyIncome, monthlySpend, _id: service._id }).then((res) => setInsurancePackage(res.data))
   }
 
-  return <form onSubmit={handleSubmit(onSubmit)} className='lg:w-1/5 md:w-2/5 sm:w-1/2 mx-auto space-y-4 my-12'>
+  return <form onSubmit={handleSubmit(onSubmit)} className='lg:w-1/5 md:w-2/5 sm:w-1/2 mx-auto space-y-4 my-8 md:my-12'>
     {/* ------------gender */}
     <div className='flex flex-col gap-2'>
       <label htmlFor="Gender" className='font-medium'>Gender</label>
@@ -121,7 +121,7 @@ const SubmitForm = ({ service }) => {
     </div>
     {/* ------------maritalStatus */}
     <div className='flex flex-col gap-2'>
-      <label htmlFor="maritalStatus" className='font-medium'>Whats your marital status?</label>
+      <label htmlFor="maritalStatus" className='font-medium'>What's your marital status?</label>
       <select className='p-2 min-h-10 md:min-h-9 border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded'
 
         {

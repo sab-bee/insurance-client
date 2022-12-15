@@ -22,7 +22,7 @@
 .linespinner {
   width: 7px;
   height: 7px;
-  background: #1add97;
+  background: #3777ff;
   position: relative;
   animation: linespinner 1.25s ease-in-out infinite;
   animation-delay: 0.4s;
@@ -35,7 +35,7 @@
   position: absolute;
   width: 7px;
   height: 7px;
-  background: #1add97;
+  background: #3777ff;
   animation: linespinner 1.25s ease-in-out infinite;
 }
 .linespinner:before {
@@ -50,11 +50,11 @@
 @keyframes linespinner {
   0%,
   100% {
-    background-color: #1add97;
-    box-shadow: 0 0 0 #1add97, 0 0 0 #1add97;
+    background-color: #3777ff;
+    box-shadow: 0 0 0 #3777ff, 0 0 0 #3777ff;
   }
   50% {
-    background-color: #12ec9c;
-    box-shadow: 0 -15px 0 #12ec9c, 0 15px 0 #12ec9c;
+    background-color: #a712ec;
+    box-shadow: 0 -15px 0 #a712ec, 0 15px 0 #a712ec;
   }
 }

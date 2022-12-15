@@ -6,15 +6,15 @@ const Moto = () => {
     {
       "title": "Proper care",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempus eleifend tortor, vel molestie orci feugiat sit amet.",
-      "thumb": "https://i.ibb.co/XVqyLY8/care.png"
+      "thumb": "https://i.ibb.co/v3vjKj7/care.png"
     }, {
       "title": "Set for Life",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempus eleifend tortor, vel molestie orci feugiat sit amet.",
-      "thumb": "https://i.ibb.co/3rRwCwK/life.png"
+      "thumb": "https://i.ibb.co/zfBq5db/life.png"
     }, {
       "title": "Tailored Cover",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempus eleifend tortor, vel molestie orci feugiat sit amet.",
-      "thumb": "https://i.ibb.co/tQddwC9/cover.png"
+      "thumb": "https://i.ibb.co/Sywsb8q/cover.png"
     }
   ]
 
@@ -22,12 +22,12 @@ const Moto = () => {
   return (
     <div className='text-center'>
       <div className='space-y-6 mb-8'>
-        <span className='bg-blue-100 text-primary font-bold px-4 py-1 rounded-full '>PROTECTION</span>
+        <span className='bg-blue-100 text-secondary font-bold px-4 py-1 rounded-full '>PROTECTION</span>
         <h2 className='text-2xl font-bold'>Take the worry out of life
           with insurance protection</h2>
         <div className='flex justify-center gap-x-2'>
-          <div className='py-1 bg-primary w-8 rounded-full'></div>
-          <div className='py-1 bg-primary w-4 rounded-full'></div>
+          <div className='py-1 bg-secondary w-4 rounded-full'></div>
+          <div className='py-1 bg-secondary w-2 rounded-full'></div>
         </div>
       </div>
       <div className='grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center'>
