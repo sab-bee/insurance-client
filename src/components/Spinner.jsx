@@ -8,8 +8,8 @@ const Spinner = ({ loading }) => {
         <circle
           cx="50" cy="50" r="30"
           fill="transparent"
-          stroke-width="8px"
-          stroke-dasharray="160"
+          strokeWidth="8px"
+          strokeDasharray="160"
         />
       </svg>
     </div>

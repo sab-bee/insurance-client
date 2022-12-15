@@ -1,4 +1,3 @@
-import React from 'react'
 import useFirebase from '../../hooks/useFirebase'
 import { FcGoogle } from "react-icons/fc";
 import { useForm } from 'react-hook-form';
@@ -10,6 +9,7 @@ const Login = () => {
   const navigate = useNavigate()
   const { register, formState: { errors }, handleSubmit, reset } = useForm({ mode: 'onChange' });
   const onSubmit = (data) => login.handleLogin(data);
+
 
   return (
     <>
