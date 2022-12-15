@@ -26,6 +26,7 @@ const EstimateProceed = ({ service }) => {
     })
   }
 
+  const f = (arg) => { }
   return (
     <>
       <div className='container py-8'>
