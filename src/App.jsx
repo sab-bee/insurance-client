@@ -6,6 +6,7 @@ import Navbar from './components/Navbar'
 import Account from './pages/account/Account'
 import Login from './pages/account/Login'
 import Register from './pages/account/Register'
+import Dashboard from './pages/dashboard/Dashboard'
 import Home from './pages/home/Home'
 import Estimate from './pages/services/Estimate'
 import Services from './pages/services/Services'
@@ -23,8 +24,9 @@ const App = () => {
             <Route path='register' element={<Register />}></Route>
           </Route>
           <Route path='/service' element={<Services />}></Route>
-          <Route path='/purchase/:_id' element={<ProtectedRoute><Estimate /></ProtectedRoute>}></Route>
+          <Route path='/estimate/:_id' element={<ProtectedRoute><Estimate /></ProtectedRoute>}></Route>
           <Route path='/subscription/:_id' element={<ProtectedRoute><Subscription /></ProtectedRoute>}></Route>
+          <Route path='/dashboard' element={<ProtectedRoute><Dashboard /></ProtectedRoute>}></Route>
         </Routes>
       </Navbar>
     </>

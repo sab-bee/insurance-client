@@ -21,7 +21,7 @@ const SingleService = ({ service }) => {
         </div>
       </div>
       <button className='btn-secondary-md w-full h-10'
-        onClick={() => navigate(`/purchase/${_id}`)}
+        onClick={() => navigate(`/estimate/${_id}`)}
       >take a look</button>
     </div>
   )

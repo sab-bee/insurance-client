@@ -19,6 +19,7 @@ const EstimateProceed = ({ service }) => {
     setLoading(true)
     const email = user?.email
     const name = user?.displayName
+    localStorage.setItem('user', JSON.stringify({ age: data.userAge, name }))
     axiosPublic.post(`/service/insurance/${email}`, { ...data, userName: name, _id }).then((res) => {
       setLoading(false)
       setPolicyPlan(res.data)

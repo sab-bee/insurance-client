@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 import { axiosPrivate } from '../../api/axiosPrivate';
 import Loader from '../../components/Loader';
 import Spinner from '../../components/Spinner';
+import useLocalSotrage from '../../hooks/useLocalStorage';
 
 const Subscription = () => {
   const { _id } = useParams()
@@ -25,10 +26,12 @@ const Subscription = () => {
   )
 }
 
-const SubmitForm = ({ service }) => {
+const SubmitForm = ({ service, setInsurancePackage }) => {
+
   const [coverage, setCoverage] = useState('5000000')
   const [yearlyIncome, setYearlyIncome] = useState('1000000')
   const [monthlySpend, setMonthlySpend] = useState('30000')
+  const { name, age } = useLocalSotrage()
 
   useEffect(() => {
     const cov = document.querySelector('.cov');
@@ -48,10 +51,26 @@ const SubmitForm = ({ service }) => {
   const { register, formState: { errors }, handleSubmit, reset } = useForm({ mode: 'onChange' });
 
   const onSubmit = (data) => {
-    axiosPrivate.post('/service/package', { ...data, coverage, yearlyIncome, monthlySpend, _id: service._id }).then((res) => setInsurancePackage(res.data))
+    axiosPrivate.post('/service/package', { ...data, coverage, yearlyIncome, monthlySpend, userAge: age, _id: service._id }).then((res) => setInsurancePackage(res.data))
   }
 
   return <form onSubmit={handleSubmit(onSubmit)} className='lg:w-1/5 md:w-2/5 sm:w-1/2 mx-auto space-y-4 my-8 md:my-12'>
+
+    {/* ------------name */}
+    <div className='flex flex-col gap-2'>
+      <label htmlFor="Gender" className='font-medium'>Name</label>
+      <input className='p-2 h-10 border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded' disabled type="text" value={name}
+      />
+    </div>
+
+    {/* ------------age */}
+    <div className='flex flex-col gap-2'>
+      <label htmlFor="Gender" className='font-medium'>Age</label>
+      <input className='p-2 h-10 border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded' disabled type="text" value={age}
+      />
+    </div>
+
+    {/* ----------coverage */}
     {/* ------------gender */}
     <div className='flex flex-col gap-2'>
       <label htmlFor="Gender" className='font-medium'>Gender</label>
@@ -144,8 +163,9 @@ const SubmitForm = ({ service }) => {
 }
 
 const Package = ({ insurancePackage }) => {
+  const { premium } = insurancePackage
   return <div>
-
+    {premium}
   </div>
 }
 
