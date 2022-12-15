@@ -1,9 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 const CustomLink = ({ children, to }) => {
+  const { pathname } = useLocation()
   return (
-    <Link to={to} className='hover:text-primary font-medium transition-colors ease-linear' >{children}</Link>
+    <Link to={to} className={`${pathname === to && 'text-primary'} hover:text-primary font-medium transition-colors ease-linear`} >{children}</Link>
   )
 }
 

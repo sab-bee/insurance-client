@@ -26,7 +26,6 @@ const Navbar = ({ children }) => {
 							<CustomLink to='/service'>Services</CustomLink>
 							{
 								user && <CustomLink to='/dashboard'>Dashboard</CustomLink>
-
 							}
 							{
 								!user ? <button className='btn-primary-md' onClick={() => navigate('/account')}>Login</button> : <button className='btn-secondary-md' onClick={() => {
@@ -51,6 +50,9 @@ const Navbar = ({ children }) => {
 						<CustomLink to='/' >Home</CustomLink>
 						<CustomLink to='/about' >About us</CustomLink>
 						<CustomLink to='/service'>Services</CustomLink>
+						{
+							user && <CustomLink to='/dashboard'>Dashboard</CustomLink>
+						}
 						{
 							!user ? <button className='btn-primary-md-mob' onClick={() => navigate('/account')}>Login</button> : <button className='btn-secondary-mob' onClick={() => signOut(auth)}>logout</button>
 						}
