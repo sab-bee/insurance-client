@@ -54,7 +54,7 @@ const Navbar = ({ children }) => {
 
 			</div>
 
-			<div className='mt-20'>
+			<div className='mt-24'>
 				{children}
 			</div>
 		</>

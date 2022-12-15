@@ -4,19 +4,21 @@ const Moto = () => {
 
   const protections = [
     {
-      "title": "Peace of Mind",
+      "title": "Proper care",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempus eleifend tortor, vel molestie orci feugiat sit amet.",
-      "thumb": "https://secuure.netlify.app/images/protection/01.png"
+      "thumb": "https://i.ibb.co/XVqyLY8/care.png"
     }, {
       "title": "Set for Life",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempus eleifend tortor, vel molestie orci feugiat sit amet.",
-      "thumb": "https://secuure.netlify.app/images/protection/02.png"
+      "thumb": "https://i.ibb.co/3rRwCwK/life.png"
     }, {
       "title": "Tailored Cover",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempus eleifend tortor, vel molestie orci feugiat sit amet.",
-      "thumb": "https://secuure.netlify.app/images/protection/03.png"
+      "thumb": "https://i.ibb.co/tQddwC9/cover.png"
     }
   ]
+
+
   return (
     <div className='text-center'>
       <div className='space-y-6 mb-8'>

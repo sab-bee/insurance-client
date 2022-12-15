@@ -1,7 +1,9 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import BannerSVG from '../../assets/BannerSVG'
 import Contact from './Contact'
 import Moto from './Moto'
+
 const Home = () => {
   return (
     <>
@@ -25,10 +27,9 @@ const Home = () => {
 
 const Banner = () => {
   const navigate = useNavigate()
-  return <div className='grid grid-cols-1 md:grid-cols-2 items-center justify-items-center lg:justify-items-stretch gap-x-12'>
-    <div className=''>
-      <img className='object-cover h-[350px] md:h-[400px] lg:h-[550px]' src='https://i.ibb.co/cct4FCm/banner.webp' alt="banner" />
-    </div>
+  return <div className='grid grid-cols-1 md:grid-cols-2 items-center justify-items-center lg:justify-items-stretch gap-x-12 gap-y-6'>
+    <BannerSVG />
+
     <div className='space-y-4'>
       <h2 className='text-2xl md:text-3xl lg:text-5xl font-bold'>We Care About the Highest Quality And Best Price Of Our Insurance</h2>
       <p className='text-sm text-gray-500'>For us, this is just the beginning. We are sustained by belief that the carriers of tomorrow should never be tied to the legacies of yesterday. The Progressive Group of Insurance Companies has always lived up We lead clients through accelerating change, helping them harness the power of technology to deliver new.</p>
