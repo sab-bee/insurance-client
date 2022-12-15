@@ -3,7 +3,7 @@ import { RiShieldCheckFill } from "react-icons/ri";
 import { motion } from "framer-motion"
 import { useNavigate } from "react-router-dom";
 
-const Policy = ({ policyPlan, setPolicyPlan }) => {
+const EstimatePolicy = ({ policyPlan, setPolicyPlan }) => {
   const { title, premium, policy, _id } = policyPlan
   const navigate = useNavigate()
 
@@ -33,7 +33,7 @@ const Policy = ({ policyPlan, setPolicyPlan }) => {
           <p className='border-b w-fit'>premium may vary based on financial information</p>
         </div>
 
-        <button className="btn-primary w-full mt-4 rounded"
+        <button className="btn-primary-md w-full mt-4 rounded"
           onClick={() => navigate(`/subscription/${_id}`)}
         >get subscription</button>
       </motion.div>
@@ -48,4 +48,4 @@ const Points = ({ point }) => {
   </p>
 }
 
-export default Policy
+export default EstimatePolicy

@@ -24,7 +24,7 @@ const Navbar = ({ children }) => {
 							<CustomLink to='/service'>Services</CustomLink>
 
 							{
-								!user ? <button className='btn-primary' onClick={() => navigate('/account')}>Login</button> : <button className='btn-secondary' onClick={() => {
+								!user ? <button className='btn-primary-md' onClick={() => navigate('/account')}>Login</button> : <button className='btn-secondary' onClick={() => {
 									signOut(auth)
 									toast('logged out', {
 										icon: '🙂'
@@ -47,7 +47,7 @@ const Navbar = ({ children }) => {
 						<CustomLink to='/about' >About us</CustomLink>
 						<CustomLink to='/service'>Services</CustomLink>
 						{
-							!user ? <button className='btn-primary-mob' onClick={() => navigate('/account')}>Login</button> : <button className='btn-secondary-mob' onClick={() => signOut(auth)}>logout</button>
+							!user ? <button className='btn-primary-md-mob' onClick={() => navigate('/account')}>Login</button> : <button className='btn-secondary-mob' onClick={() => signOut(auth)}>logout</button>
 						}
 					</div>
 				</div>

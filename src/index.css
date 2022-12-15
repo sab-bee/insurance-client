@@ -18,8 +18,12 @@ body {
     @apply w-3/4 mx-auto;
   }
 
-  .btn-primary {
-    @apply bg-primary text-white shadow-lg shadow-green-200 font-medium rounded-full w-20 py-1 hover:bg-gray-800 hover:shadow-gray-300 transition-all ease-linear;
+  .btn-primary-md {
+    @apply bg-primary text-white shadow-lg shadow-blue-200 font-medium rounded-full w-20 py-1 hover:bg-secondary hover:shadow-gray-300 transition-all ease-linear;
+  }
+
+  .btn-primary-lg {
+    @apply bg-primary text-white shadow-lg shadow-blue-200 font-medium rounded-full w-36 py-2 hover:bg-secondary hover:shadow-gray-300 transition-all ease-linear;
   }
 
   .btn-secondary {
@@ -30,11 +34,22 @@ body {
     @apply border-2 shadow-lg font-medium rounded-full w-20 py-1 shadow-gray-200 hover:bg-gray-50  transition-colors ease-linear;
   }
 
-  .btn-primary-mob {
-    @apply bg-primary text-white shadow-lg shadow-green-200 font-medium rounded-full w-full py-1 hover:bg-gray-800 hover:shadow-none transition-colors ease-linear;
+  .btn-primary-md-mob {
+    @apply bg-primary text-white shadow-lg shadow-blue-200 font-medium rounded-full w-full py-1 hover:bg-gray-800 hover:shadow-none transition-colors ease-linear;
   }
 
   .btn-secondary-mob {
     @apply bg-red-400 shadow-lg shadow-red-200 text-white font-medium rounded-full w-full py-1  transition-colors ease-linear;
   }
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: #3777ff;
+  border: 2px solid white;
+  cursor: pointer;
+  border-radius: 100%;
 }

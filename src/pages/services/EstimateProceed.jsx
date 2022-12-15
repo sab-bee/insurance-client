@@ -4,11 +4,11 @@ import { useForm } from 'react-hook-form';
 import { axiosPublic } from '../../api/axiosPublic';
 import { auth } from '../../auth/firebase.init';
 import Spinner from '../../components/Spinner';
-import Policy from './PolicyPlan';
 import _ from 'lodash'
 import { AnimatePresence } from "framer-motion"
+import EstimatePolicy from './EstimatePolicy';
 
-const Checkout = ({ service }) => {
+const EstimateProceed = ({ service }) => {
   const [policyPlan, setPolicyPlan] = useState({})
   const [loading, setLoading] = useState(false)
   const { title, policy, _id } = service
@@ -77,20 +77,20 @@ const Checkout = ({ service }) => {
           </div>
 
 
-          <button className='btn-primary w-full rounded h-10 md:h-9'>
+          <button className='btn-primary-md w-full rounded h-10 md:h-9'>
             <span className='flex justify-center'>
-              <Spinner loading={loading} /> get policy plan
+              <Spinner loading={loading} /> get estimation
             </span>
           </button>
         </form>
       </div>
       <AnimatePresence>
         {
-          _.isEmpty(policyPlan) || <Policy policyPlan={policyPlan} setPolicyPlan={setPolicyPlan} />
+          _.isEmpty(policyPlan) || <EstimatePolicy policyPlan={policyPlan} setPolicyPlan={setPolicyPlan} />
         }
       </AnimatePresence>
     </>
   )
 }
 
-export default Checkout
+export default EstimateProceed

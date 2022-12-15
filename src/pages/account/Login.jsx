@@ -53,7 +53,7 @@ const Login = () => {
         </div>
 
         {/* -------------actions */}
-        <button className='btn-primary w-full rounded h-10 md:h-9'>
+        <button className='btn-primary-md w-full rounded h-10 md:h-9'>
           <span className='flex justify-center'>
             <Spinner loading={login.eLoding} /> login
           </span>

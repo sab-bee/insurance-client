@@ -22,7 +22,7 @@ const Moto = () => {
   return (
     <div className='text-center'>
       <div className='space-y-6 mb-8'>
-        <span className='bg-green-100 text-primary font-bold px-4 py-1 rounded-full '>PROTECTION</span>
+        <span className='bg-blue-100 text-primary font-bold px-4 py-1 rounded-full '>PROTECTION</span>
         <h2 className='text-2xl font-bold'>Take the worry out of life
           with insurance protection</h2>
         <div className='flex justify-center gap-x-2'>

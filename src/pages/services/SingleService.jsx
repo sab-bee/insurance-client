@@ -25,7 +25,7 @@ const SingleService = ({ service }) => {
       </div>
 
 
-      <button className='btn-primary w-full rounded-none h-10 md:h-9'
+      <button className='btn-primary-md w-full rounded-none h-10 md:h-9'
         onClick={() => navigate(`/purchase/${_id}`)}
       >purchase plan</button>
     </div>
