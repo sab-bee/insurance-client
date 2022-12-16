@@ -10,6 +10,7 @@ import Admin from './pages/dashboard/Admin'
 import Dashboard from './pages/dashboard/Dashboard'
 import MyPackage from './pages/dashboard/MyPackage'
 import Home from './pages/home/Home'
+import Payment from './pages/Purchase/Payment'
 import Estimate from './pages/services/Estimate'
 import Services from './pages/services/Services'
 import Subscription from './pages/services/Subscription'
@@ -32,6 +33,7 @@ const App = () => {
             <Route index element={<Admin></Admin>}></Route>
             <Route path='package' element={<MyPackage></MyPackage>}></Route>
           </Route>
+          <Route path='/payment' element={<Payment></Payment>}></Route>
         </Routes>
       </Navbar>
     </>

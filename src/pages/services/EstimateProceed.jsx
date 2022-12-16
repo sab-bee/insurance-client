@@ -19,18 +19,18 @@ const EstimateProceed = ({ service }) => {
     setLoading(true)
     const email = user?.email
     const name = user?.displayName
-    localStorage.setItem('user', JSON.stringify({ age: data.userAge, name }))
-    axiosPublic.post(`/service/insurance/${email}`, { ...data, userName: name, _id }).then((res) => {
+    // localStorage.setItem('user', JSON.stringify({ age: data.userAge, name }))
+    data = { ...data, userName: name, _id }
+    axiosPublic.post(`/service/insurance/${email}`, data).then((res) => {
       setLoading(false)
       setPolicyPlan(res.data)
     })
   }
 
-  const f = (arg) => { }
   return (
     <>
       <div className='container py-8'>
-        <h2 className='text-center text-2xl font-semibold capitalize'>{title}</h2>
+        <h2 className='text-center text-2xl font-bold capitalize'>Get a quick estimate</h2>
         <form onSubmit={handleSubmit(onSubmit)} className='lg:w-1/5 md:w-2/5 sm:w-1/2 mx-auto space-y-4 my-12'>
           <div className='flex flex-col gap-2'>
             <label htmlFor="name" className='font-medium'>Name</label>
@@ -81,7 +81,7 @@ const EstimateProceed = ({ service }) => {
 
           <button className='btn-primary-md w-full rounded h-10 md:h-9'>
             <span className='flex justify-center'>
-              <Spinner loading={loading} /> get estimation
+              <Spinner loading={loading} /> proceed
             </span>
           </button>
         </form>

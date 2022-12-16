@@ -2,9 +2,10 @@
 import { RiShieldCheckFill } from "react-icons/ri";
 import { motion } from "framer-motion"
 import { useNavigate } from "react-router-dom";
+import { FiArrowRight } from "react-icons/fi";
 
 const EstimatePolicy = ({ policyPlan, setPolicyPlan }) => {
-  const { title, premium, policy, _id } = policyPlan
+  const { title, premium, policy, userAge, _id } = policyPlan
   const navigate = useNavigate()
 
   return (
@@ -21,7 +22,7 @@ const EstimatePolicy = ({ policyPlan, setPolicyPlan }) => {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.3, ease: 'easeOut' }}
         exit={{ scale: 0.3, opacity: 0 }}>
-        <h2 className='text-xl font-medium text-center mb-2'>Policy for this Serivce</h2>
+        <h2 className='text-xl font-medium text-center mb-2'>General Estimation</h2>
         <p className='mb-2'>You have choose <span className='border-b-2 border-primary capitalize'>{title}</span> service</p>
 
         <Points point={`premium around $${premium}/month`} />
@@ -33,9 +34,12 @@ const EstimatePolicy = ({ policyPlan, setPolicyPlan }) => {
           <p className='border-b w-fit'>premium may vary based on financial information</p>
         </div>
 
-        <button className="btn-primary-md h-10 w-full mt-4 rounded"
-          onClick={() => navigate(`/subscription/${_id}`)}
-        >get subscription</button>
+        <button className="btn-primary-md h-10 w-full mt-6 rounded flex items-center justify-center gap-x-2"
+          onClick={() => navigate(`/subscription/${_id}`, { state: { userAge } })}
+        >
+          <span>subscription</span>
+          <FiArrowRight className="text-xl" />
+        </button>
       </motion.div>
     </motion.div >
   )

@@ -1,15 +1,16 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react'
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { axiosPrivate } from '../../api/axiosPrivate';
+import { auth } from '../../auth/firebase.init';
 import Loader from '../../components/Loader';
 import Spinner from '../../components/Spinner';
 import useLocalSotrage from '../../hooks/useLocalStorage';
 
 const Subscription = () => {
   const { _id } = useParams()
-  const [insurancePackage, setInsurancePackage] = useState({})
 
   const { data: service, isLoading, refetch, isError } = useQuery(['service'], () => axiosPrivate(`/service/service/${_id}`).then((res) => res.data))
 
@@ -18,20 +19,20 @@ const Subscription = () => {
     <div className='container py-8'>
       <div className='text-center'>
         <h2 className='text-2xl font-bold'>Information form</h2>
-        <h3>please give us proper information our system will provide you the best possible package</h3>
+        <h3 className='text-sm'>please give us proper information our system will provide you the best possible package</h3>
       </div>
-      <SubmitForm service={service} setInsurancePackage={setInsurancePackage} />
-      <Package insurancePackage={insurancePackage} />
+      <SubmitForm service={service} />
     </div>
   )
 }
 
-const SubmitForm = ({ service, setInsurancePackage }) => {
-
+const SubmitForm = ({ service }) => {
   const [coverage, setCoverage] = useState('5000000')
   const [yearlyIncome, setYearlyIncome] = useState('1000000')
   const [monthlySpend, setMonthlySpend] = useState('30000')
-  const { name, age } = useLocalSotrage()
+  const { state } = useLocation()
+  const [user] = useAuthState(auth)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const cov = document.querySelector('.cov');
@@ -51,7 +52,9 @@ const SubmitForm = ({ service, setInsurancePackage }) => {
   const { register, formState: { errors }, handleSubmit, reset } = useForm({ mode: 'onChange' });
 
   const onSubmit = (data) => {
-    axiosPrivate.post('/service/package', { ...data, coverage, yearlyIncome, monthlySpend, userAge: age, _id: service._id }).then((res) => setInsurancePackage(res.data))
+    axiosPrivate.post('/service/package', { ...data, coverage, yearlyIncome, monthlySpend, userAge: state.userAge, _id: service._id }).then((res) => {
+      navigate('/payment', { state: res.data })
+    })
   }
 
   return <form onSubmit={handleSubmit(onSubmit)} className='lg:w-1/5 md:w-2/5 sm:w-1/2 mx-auto space-y-4 my-8 md:my-12'>
@@ -59,14 +62,14 @@ const SubmitForm = ({ service, setInsurancePackage }) => {
     {/* ------------name */}
     <div className='flex flex-col gap-2'>
       <label htmlFor="Gender" className='font-medium'>Name</label>
-      <input className='p-2 h-10 border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded' disabled type="text" value={name}
+      <input className='p-2 h-10 border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded' disabled type="text" value={user.displayName}
       />
     </div>
 
     {/* ------------age */}
     <div className='flex flex-col gap-2'>
       <label htmlFor="Gender" className='font-medium'>Age</label>
-      <input className='p-2 h-10 border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded' disabled type="text" value={age}
+      <input className='p-2 h-10 border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded' disabled type="text" value={state.userAge}
       />
     </div>
 
@@ -158,15 +161,7 @@ const SubmitForm = ({ service, setInsurancePackage }) => {
         <Spinner /> submit
       </span>
     </button>
-
   </form>
-}
-
-const Package = ({ insurancePackage }) => {
-  const { premium } = insurancePackage
-  return <div>
-    {premium}
-  </div>
 }
 
 export default Subscription
