@@ -40,7 +40,7 @@ const EstimateProceed = ({ service }) => {
           <div className='flex flex-col gap-2'>
             <label htmlFor="userAge" className='font-medium'>
               <span className='flex'>
-                <span>age</span>
+                <span>Age</span>
                 {errors.userAge && <p className='text-red-500'>*</p>}
                 {
                   (errors.userAge?.type === 'min' || errors.userAge?.type === 'max') && <p className='text-red-500 text-sm'>between 25-60 y/o</p>

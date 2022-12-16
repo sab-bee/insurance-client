@@ -19,11 +19,11 @@ body {
   }
 
   .btn-primary-md {
-    @apply bg-primary text-white shadow-md shadow-primaryShadow font-medium rounded-full w-20 py-1 hover:bg-secondary hover:shadow-gray-300 transition-all ease-linear;
+    @apply bg-primary text-white shadow-md shadow-primaryShadow font-medium rounded-full w-20 h-10 hover:bg-secondary hover:shadow-gray-300 transition-all ease-linear;
   }
 
   .btn-primary-lg {
-    @apply bg-primary text-white shadow-md shadow-primaryShadow font-medium rounded-full w-36 py-2 hover:bg-secondary hover:shadow-gray-300 transition-all ease-linear;
+    @apply bg-primary text-white shadow-md shadow-primaryShadow font-medium rounded-full w-36 h-10 hover:bg-secondary hover:shadow-gray-300 transition-all ease-linear;
   }
 
   .btn-secondary-md {
@@ -31,15 +31,15 @@ body {
   }
 
   .btn-neutral {
-    @apply border-2 shadow-lg font-medium rounded-full w-20 py-1 shadow-gray-200 hover:bg-gray-50  transition-colors ease-linear;
+    @apply border-2 shadow-lg font-medium rounded-full w-20 h-10 shadow-gray-200 hover:bg-gray-50  transition-colors ease-linear;
   }
 
   .btn-primary-md-mob {
-    @apply bg-primary text-white shadow-md shadow-blue-200 font-medium rounded-full w-full py-1 hover:bg-gray-800 hover:shadow-none transition-colors ease-linear;
+    @apply bg-primary text-white shadow-md shadow-blue-200 font-medium rounded-full w-full h-10 hover:bg-gray-800 hover:shadow-none transition-colors ease-linear;
   }
 
   .btn-secondary-mob {
-    @apply border border-primary text-primary font-medium rounded-full w-full py-1  transition-colors ease-linear;
+    @apply border border-primary text-primary font-medium rounded-full w-full h-10  transition-colors ease-linear;
   }
 }
 

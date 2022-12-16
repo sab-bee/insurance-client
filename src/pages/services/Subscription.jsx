@@ -158,7 +158,7 @@ const SubmitForm = ({ service }) => {
     {/* -------------actions */}
     <button className='btn-primary-md w-full rounded h-10 md:h-9'>
       <span className='flex justify-center'>
-        <Spinner /> submit
+        <Spinner /> purchase
       </span>
     </button>
   </form>
