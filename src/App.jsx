@@ -18,7 +18,7 @@ import Subscription from './pages/services/Subscription'
 const App = () => {
   return (
     <>
-      <Toaster position="top-center" toastOptions={{ duration: 2000, }} />
+      <Toaster position="bottom-right" toastOptions={{ duration: 2000, }} />
       <Navbar>
         <Routes>
           <Route path='/' element={<Home />}></Route>
@@ -33,7 +33,7 @@ const App = () => {
             <Route index element={<Admin></Admin>}></Route>
             <Route path='package' element={<MyPackage></MyPackage>}></Route>
           </Route>
-          <Route path='/payment' element={<Payment></Payment>}></Route>
+          <Route path='/payment' element={<ProtectedRoute><Payment></Payment></ProtectedRoute>}></Route>
         </Routes>
       </Navbar>
     </>

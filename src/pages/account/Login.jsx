@@ -9,8 +9,7 @@ const Login = () => {
   const navigate = useNavigate()
   const { register, formState: { errors }, handleSubmit, reset } = useForm({ mode: 'onChange' });
   const onSubmit = (data) => login.handleLogin(data);
-
-
+  
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className='lg:w-1/5 md:w-2/5 sm:w-1/2 w-4/5 mx-auto space-y-4'>
