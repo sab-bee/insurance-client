@@ -13,6 +13,7 @@ const stripeTestPromise = loadStripe(PUBLIC_KEY);
 const Payment = () => {
   const { state: { premium, _id } } = useLocation() //double destructure
   const [paid, setPaid] = useState(false)
+  
   return (
     <div className='bg-background py-12 md:py-20 min-h-screen'>
       <h2 className='text-center mb-8 text-2xl font-bold'>Payment</h2>
