@@ -9,7 +9,7 @@ const EstimatePolicy = ({ policyPlan, setPolicyPlan }) => {
   const navigate = useNavigate()
 
   return (
-    <motion.div className="w-full flex items-center justify-center h-screen fixed top-0 backdrop-blur-sm bg-[rgba(0,0,0,0.08)]"
+    <motion.div className="w-full flex items-center justify-center h-screen fixed top-0 backdrop-blur-[5px] bg-[rgba(0,0,0,0.08)]"
       onClick={() => setPolicyPlan({})}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}

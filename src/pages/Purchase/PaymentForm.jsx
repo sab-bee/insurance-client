@@ -4,6 +4,9 @@ import { toast } from 'react-hot-toast';
 import { axiosPrivate } from '../../api/axiosPrivate';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../auth/firebase.init';
+import { motion, AnimatePresence } from 'framer-motion';
+import Card from '../../assets/Card';
+import { useNavigate } from 'react-router';
 
 const CARD_OPTIONS = {
   iconStyle: 'solid',
@@ -28,23 +31,26 @@ const CARD_OPTIONS = {
   },
 };
 
-const PaymentForm = ({ insurancePackage, setPaid }) => {
+const PaymentForm = ({ insurancePackage, setPaid, setTransactionId }) => {
   const stripe = useStripe()
   const elements = useElements()
   const [clientSecret, setClientSecret] = useState('')
-  const [due, setDue] = useState(false)
-  const { pre, _id } = insurancePackage
+  const [modal, setModal] = useState(false)
+  const navigate = useNavigate()
+
+  const { premium, _id } = insurancePackage
   const [user] = useAuthState(auth)
   const [billingDetails, setBillingDetails] = useState({
     email: '',
     name: '',
   });
 
-  const handleDuePayment = () => {
-    console.log('hello')
-    // axiosPrivate(`/subscription/payment/${pre}`).then((res) => setClientSecret(res.data.clientSecret))
-    // setDue(true)
+  const handleDuePayment = (e) => {
+    e.preventDefault()
+    axiosPrivate(`/subscription/payment/${premium}`).then((res) => setClientSecret(res.data.clientSecret))
+    setModal(true)
   }
+
   const handleConfirmPayment = async (event) => {
     const toastId = toast.loading('payment processing...')
     event.preventDefault()
@@ -79,12 +85,12 @@ const PaymentForm = ({ insurancePackage, setPaid }) => {
         id: toastId,
       })
     } else {
-      const transactionId = paymentIntent.client_secret
+      setTransactionId(paymentIntent.client_secret)
       setPaid(true)
       toast.success('payment complete', {
         id: toastId
       })
-      setDue(false)
+      setModal(false)
     }
   }
 
@@ -129,19 +135,46 @@ const PaymentForm = ({ insurancePackage, setPaid }) => {
               </div>
             </div>
           </div>
+
           <div className='grid grid-cols-2 gap-x-4'>
-            <button type='button' className='btn-deny-md w-full'>Cancel</button>
+            <button type='button' className='btn-deny-md w-full' onClick={() => navigate('/service')}>Cancel</button>
             <button className='btn-primary-md w-full'>Pay</button>
           </div>
         </form>
       </div>
-      {/* due */}
-      {
-        due && <div>
-          <button className='btn-primary-md'>confirm</button>
-        </div>
-      }
 
+      {/* modal */}
+      <AnimatePresence>
+        {
+          modal &&
+
+          <motion.div className='w-full -left-0 flex items-center justify-center h-screen fixed top-0 backdrop-blur-[5px]'
+            key={modal}
+            onClick={() => setModal(false)}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+            exit={{ opacity: 0 }}>
+            <motion.div className='w-4/5 sm:w-[300px] min-h-[320px] bg-white p-4 rounded-xl  shadow-lg flex flex-col justify-between'
+              key={modal}
+              onClick={(e) => e.stopPropagation()}
+              initial={{ scale: .5 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+              exit={{ opacity: 0, scale: .5 }}>
+              <div className='p-6 space-y-4'>
+                <h2 className='text-primary font-bold text-center'>Confirm to pay</h2>
+                <p className='text-sm'>Your email and transaction id will be saved to our database for security reason.</p>
+                <div className='grid justify-items-center'>
+                  <Card />
+                </div>
+              </div>
+              <button className='btn-primary-md w-full bottom-0' onClick={handleConfirmPayment}>confirm</button>
+            </motion.div>
+          </motion.div>
+
+        }
+      </AnimatePresence>
     </>
   )
 }

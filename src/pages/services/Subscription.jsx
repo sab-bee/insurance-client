@@ -7,7 +7,7 @@ import { axiosPrivate } from '../../api/axiosPrivate';
 import { auth } from '../../auth/firebase.init';
 import Loader from '../../components/Loader';
 import Spinner from '../../components/Spinner';
-import useLocalSotrage from '../../hooks/useLocalStorage';
+
 
 const Subscription = () => {
   const { _id } = useParams()
@@ -60,29 +60,27 @@ const SubmitForm = ({ service }) => {
     })
   }
 
-  return <div className='lg:w-96 md:w-1/2 mx-auto space-y-4 my-8 md:my-12 p-10 bg-white shadow-lg shadow-zinc-200 rounded-lg'>
+  return <div className='lg:w-96 md:w-2/3 mx-auto space-y-4 my-8 md:my-12 p-10 bg-white shadow-lg shadow-zinc-200 rounded-2xl'>
     <form onSubmit={handleSubmit(onSubmit)} className='space-y-4'>
 
       {/* ------------name */}
       <div className='flex flex-col gap-2'>
         <label htmlFor="Gender" className='font-medium'>Name</label>
-        <input className='p-2  border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded' disabled type="text" value={user.displayName}
+        <input disabled type="text" value={user.displayName}
         />
       </div>
 
       {/* ------------age */}
       <div className='flex flex-col gap-2'>
         <label htmlFor="Gender" className='font-medium'>Age</label>
-        <input className='p-2  border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded' disabled type="text" value={state.userAge}
+        <input  disabled type="text" value={state.userAge}
         />
       </div>
 
-      {/* ----------coverage */}
       {/* ------------gender */}
       <div className='flex flex-col gap-2'>
         <label htmlFor="Gender" className='font-medium'>Gender</label>
-        <select className='p-2 min- md:min-h-9 border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded'
-
+        <select 
           {
           ...register('gender')
           }>
@@ -134,8 +132,7 @@ const SubmitForm = ({ service }) => {
       {/* ------------habit */}
       <div className='flex flex-col gap-2'>
         <label htmlFor="habit" className='font-medium'>Do you smoke or drink?</label>
-        <select className='p-2 min- md:min-h-9 border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded'
-
+        <select
           {
           ...register('habit')
           }>
@@ -148,7 +145,7 @@ const SubmitForm = ({ service }) => {
       {/* ------------maritalStatus */}
       <div className='flex flex-col gap-2'>
         <label htmlFor="maritalStatus" className='font-medium'>What's your marital status?</label>
-        <select className='p-2 min- md:min-h-9 border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded'
+        <select 
 
           {
           ...register('maritalStatus')

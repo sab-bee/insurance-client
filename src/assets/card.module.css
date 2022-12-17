@@ -1,0 +1,12 @@
+.down {
+  animation: rot 1.2s infinite alternate linear;
+  animation-timing-function: cubic-bezier(0.56, 0.52, 0.03, 0.92);
+  transform-origin: bottom left;
+}
+
+@keyframes rot {
+  75%,
+  100% {
+    transform: rotate(15deg);
+  }
+}
