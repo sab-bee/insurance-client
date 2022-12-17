@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import PaymentForm from './PaymentForm';
 import { FiArrowRight } from "react-icons/fi";
+import useCheckPayment from '../../hooks/useCheckPayment';
 
 const PUBLIC_KEY =
   "pk_test_51L1Dp8J48oi4JQCJngh2eIDVprg1z8uRziP6OqMWowsDcPLfOfAikPLhWyPqjDuG3lnyh8p3vjf6gRAZHjM8SFzn00FkVLnBj3";
@@ -15,6 +16,13 @@ const Payment = () => {
   const [paid, setPaid] = useState(false)
   const [transactionId, setTransactionId] = useState('')
   const [copied, setCopied] = useState(false)
+
+  // useEffect(() => {
+  //   if (!transactionId) {
+  //     setPaid(true)
+  //   }
+  // }, [])
+
   const navigate = useNavigate()
 
   const copyTransaction = () => {
@@ -44,8 +52,6 @@ const Payment = () => {
               <h2 className='text-2xl font-bold text-primary mt-4'>${premium.toLocaleString()}</h2>
               <h2 className='font-bold mt-4'>Payment incomplete</h2>
               <p className='text-sm'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, eius!</p>
-
-
             </div>
             : <div className='rounded-2xl shadow-lg shadow-zinc-200 md:pt-10 md:pb-5 md:px-12 p-8 lg:w-96 sm:w-2/4 w-[90%] mx-auto'>
               <span className='font-medium bg-green-100 text-green-500 px-4 py-1 rounded-full'>Paid</span>

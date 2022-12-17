@@ -85,12 +85,20 @@ const PaymentForm = ({ insurancePackage, setPaid, setTransactionId }) => {
         id: toastId,
       })
     } else {
-      setTransactionId(paymentIntent.client_secret)
-      setPaid(true)
-      toast.success('payment complete', {
-        id: toastId
+      axiosPrivate.post('/subscription/payment/save', {
+        paid: true,
+        transactionId: paymentIntent.client_secret,
+        email: user.email,
+        pacakgeId: _id
+      }).then((res) => {
+        setTransactionId(paymentIntent.client_secret)
+        setPaid(true)
+        toast.success('payment complete', {
+          id: toastId
+        })
+        setModal(false)
       })
-      setModal(false)
+
     }
   }
 
