@@ -3,7 +3,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { axiosPrivate } from '../../api/axiosPrivate'
 import Loader from '../../components/Loader'
-import EstimateProceed from './EstimateProceed'
+import EstimateForm from './EstimateForm'
 
 const Estimate = () => {
   const { _id } = useParams()
@@ -12,7 +12,7 @@ const Estimate = () => {
   if (isLoading) return <Loader />
   return (
     <div className='py-20'>
-      <EstimateProceed service={service} />
+      <EstimateForm service={service} />
     </div>
   )
 }

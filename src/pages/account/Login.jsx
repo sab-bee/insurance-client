@@ -1,17 +1,20 @@
 import useFirebase from '../../hooks/useFirebase'
 import { FcGoogle } from "react-icons/fc";
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Spinner from '../../components/Spinner';
 
 const Login = () => {
   const { google, login } = useFirebase()
   const navigate = useNavigate()
   const { register, formState: { errors }, handleSubmit, reset } = useForm({ mode: 'onChange' });
+  const { state } = useLocation()
+
   const onSubmit = (data) => login.handleLogin(data);
 
   return (
-    <div className='bg-white p-10 rounded-2xl shadow-lg shadow-zinc-200 lg:w-96 md:w-1/3 sm:w-1/2 w-4/5 mx-auto'>
+    <div className='bg-white p-8 rounded-2xl shadow-lg shadow-zinc-200 lg:w-96 md:w-1/3 sm:w-1/2 w-4/5 mx-auto'>
+      <h2 className="text-center font-bold text-lg mb-4">Login</h2>
       <form onSubmit={handleSubmit(onSubmit)} className='space-y-4'>
         {/* -----------email */}
         <div className='flex flex-col gap-2'>
@@ -57,8 +60,8 @@ const Login = () => {
             <Spinner loading={login.eLoding} /> login
           </span>
         </button>
-        <button type='button' className='underline w-fit mx-auto block' onClick={() => navigate('/account/register')}>create an account</button>
-        <button type='button' onClick={() => google.handleGoogleSign()} className='btn-neutral w-full rounded flex items-center justify-center gap-2  '><FcGoogle className='text-2xl' /><span>signin with google</span></button>
+        <button type='button' className='underline w-fit mx-auto block' onClick={() => navigate('/account/register', { state: state })}>create an account</button>
+        <button type='button' onClick={() => google.handleGoogleSign()} className='btn-neutral w-full flex items-center justify-center gap-2  '><FcGoogle className='text-2xl' /><span>signin with google</span></button>
       </form>
 
     </div>

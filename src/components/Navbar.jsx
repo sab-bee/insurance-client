@@ -54,7 +54,7 @@ const Navbar = ({ children }) => {
 							user && <CustomLink to='/dashboard'>Dashboard</CustomLink>
 						}
 						{
-							!user ? <button className='btn-primary-md-mob' onClick={() => navigate('/account')}>Login</button> : <button className='btn-secondary-mob' onClick={() => signOut(auth)}>logout</button>
+							!user ? <button className='btn-primary-md w-full' onClick={() => navigate('/account')}>Login</button> : <button className='btn-secondary-md' onClick={() => signOut(auth)}>logout</button>
 						}
 					</div>
 				</div>

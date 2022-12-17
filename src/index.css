@@ -13,12 +13,22 @@ body {
   font-family: "roboto", sans-serif;
 }
 
-input {
+/* input,
+select {
   height: 3rem;
   border-radius: 0.375rem;
   outline: none;
   padding: 1rem;
   border: 1px solid #e5e7eb;
+} */
+
+input,
+select {
+  height: 3rem;
+  outline: none;
+  padding: 0 1rem;
+  background-color: #fcfcfc;
+  border-bottom: 1px solid #d6d9dd;
 }
 
 @layer components {
@@ -26,24 +36,30 @@ input {
     @apply w-3/4 mx-auto;
   }
 
-  .input {
+  /* .input {
     @apply h-12 border grid items-center px-4 rounded-md;
+  } */
+  .input {
+    @apply h-12 border-b grid items-center bg-[#fcfcfc] px-4;
   }
 
   .btn-primary-md {
     @apply bg-primary text-white shadow-md shadow-primaryShadow font-medium rounded-md w-20 h-12 hover:bg-secondary hover:shadow-gray-300 transition-all ease-linear;
   }
+  .btn-deny-md {
+    @apply bg-[#fcfcfc] shadow-lg font-medium rounded-md w-20 shadow-gray-100 hover:bg-gray-50 h-12 transition-colors ease-linear;
+  }
 
   .btn-primary-lg {
-    @apply bg-primary text-white shadow-md shadow-primaryShadow font-medium rounded-full w-36  hover:bg-secondary hover:shadow-gray-300 transition-all ease-linear;
+    @apply bg-primary text-white shadow-md shadow-primaryShadow font-medium rounded-md w-28 h-12 hover:bg-secondary hover:shadow-gray-300 transition-all ease-linear;
   }
 
   .btn-secondary-md {
-    @apply border border-primary text-primary font-medium rounded-full w-20 py-1  transition-colors ease-linear;
+    @apply border  font-medium rounded-md w-20 h-12  transition-all ease-linear;
   }
 
   .btn-neutral {
-    @apply border-2 shadow-lg font-medium rounded-full w-20  shadow-gray-200 hover:bg-gray-50  transition-colors ease-linear;
+    @apply border-2 shadow-lg font-medium rounded-md w-20 shadow-gray-100 hover:bg-gray-50 h-12 transition-colors ease-linear;
   }
 
   .btn-primary-md-mob {

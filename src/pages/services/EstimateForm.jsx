@@ -8,7 +8,7 @@ import _ from 'lodash'
 import { AnimatePresence } from "framer-motion"
 import EstimatePolicy from './EstimatePolicy';
 
-const EstimateProceed = ({ service }) => {
+const EstimateForm = ({ service }) => {
   const [policyPlan, setPolicyPlan] = useState({})
   const [loading, setLoading] = useState(false)
   const { title, policy, _id } = service
@@ -34,7 +34,7 @@ const EstimateProceed = ({ service }) => {
         <form onSubmit={handleSubmit(onSubmit)} className='l space-y-4 '>
           <div className='flex flex-col gap-2'>
             <label htmlFor="name" className='font-medium'>Name</label>
-            <input value={user.displayName} disabled className='p-2   border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded' type="text" />
+            <input value={user.displayName} disabled type="text" />
           </div>
 
           <div className='flex flex-col gap-2'>
@@ -48,7 +48,7 @@ const EstimateProceed = ({ service }) => {
               </span>
             </label>
 
-            <input className='p-2   border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded' type="number" placeholder='enter your age'
+            <input type="number" placeholder='enter your age'
               {
               ...register('userAge', {
                 required: true,
@@ -62,13 +62,12 @@ const EstimateProceed = ({ service }) => {
 
           <div className='flex flex-col gap-2'>
             <label htmlFor="service" className='font-medium'>Service</label>
-            <input value={title} disabled className='p-2   border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded' type="text" />
+            <input value={title} disabled type="text" />
           </div>
 
           <div className='flex flex-col gap-2'>
             <label htmlFor="service" className='font-medium'>Coverage</label>
-            <select className='p-2 min- md:min-h-9 border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded'
-
+            <select
               {
               ...register('coverage')
               }>
@@ -95,4 +94,4 @@ const EstimateProceed = ({ service }) => {
   )
 }
 
-export default EstimateProceed
+export default EstimateForm

@@ -10,7 +10,7 @@ const CARD_OPTIONS = {
   style: {
     base: {
       iconColor: '#c4f0ff',
-      fontWeight: 500,
+      fontWeight: 400,
       fontFamily: 'Roboto, Open Sans, Segoe UI, sans-serif',
       fontSize: '16px',
       fontSmoothing: 'antialiased',
@@ -18,7 +18,7 @@ const CARD_OPTIONS = {
         color: '#fce883',
       },
       '::placeholder': {
-        color: '#87bbfd',
+        // color: '#87bbfd',
       },
     },
     invalid: {
@@ -41,10 +41,12 @@ const PaymentForm = ({ insurancePackage, setPaid }) => {
 
   useEffect(() => {
     axiosPrivate(`/subscription/payment/${premium}`).then((res) => setClientSecret(res.data.clientSecret))
-
   }, [premium])
 
-  const handleSubmit = async (event) => {
+  const handleDuePayment = () => {
+
+  }
+  const handleConfirmPayment = async (event) => {
     const toastId = toast.loading('payment processing...')
     event.preventDefault()
 
@@ -90,7 +92,7 @@ const PaymentForm = ({ insurancePackage, setPaid }) => {
 
     <div className='bg-white p-10 rounded-2xl shadow-lg shadow-zinc-200 lg:w-96 md:w-4/5 w-full mx-auto'>
       <h2 className='text-center font-bold text-xl'>Transaction form</h2>
-      <form onSubmit={handleSubmit} className='space-y-4'>
+      <form onSubmit={handleConfirmPayment} className='space-y-4'>
         <div className='flex flex-col gap-2'>
           <label htmlFor="name" className='font-medium'>Name
           </label>
@@ -127,7 +129,10 @@ const PaymentForm = ({ insurancePackage, setPaid }) => {
             </div>
           </div>
         </div>
-        <button className='btn-primary-md w-full'>Pay</button>
+        <div className='grid grid-cols-2 gap-x-4'>
+          <button className='btn-deny-md w-full'>Cancel</button>
+          <button className='btn-primary-md w-full'>Pay</button>
+        </div>
       </form>
     </div>
   )
