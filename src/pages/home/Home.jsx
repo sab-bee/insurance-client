@@ -11,7 +11,7 @@ const Home = () => {
         <div className='container mt-10 md:h-[70vh] flex items-center '>
           <Banner></Banner>
         </div>
-        <div className='bg-zinc-50 py-10'>
+        <div className='bg-background py-10'>
           <div className='container'>
             <Moto></Moto>
           </div>

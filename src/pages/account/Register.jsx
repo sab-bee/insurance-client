@@ -26,7 +26,7 @@ const Register = () => {
             }
           </div>
         </label>
-        <input className='p-2 h-10 md:h-9 border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded' type="text" placeholder='enter name'
+        <input className='p-2   border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded' type="text" placeholder='enter name'
           {...register("name", {
             required: true,
           })}
@@ -44,7 +44,7 @@ const Register = () => {
             <p className='text-red-500 text-sm'>{errors.email?.message}</p>
           </div>
         </label>
-        <input className='p-2 h-10 md:h-9 border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded' type="email" placeholder='enter email address'
+        <input className='p-2   border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded' type="email" placeholder='enter email address'
           {...register("email", {
             required: true,
             pattern: {
@@ -65,14 +65,14 @@ const Register = () => {
             }
           </div>
         </label>
-        <input className='p-2 h-10 md:h-9 border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded' type="password" placeholder='enter password'
+        <input className='p-2   border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded' type="password" placeholder='enter password'
           {...register('password', {
             required: true,
           })} />
       </div>
 
       {/* -------------actions */}
-      <button className='btn-primary-md w-full rounded h-10 md:h-9'>
+      <button className='btn-primary-md w-full rounded  '>
         <span className='flex justify-center'>
           <Spinner loading={create.cLoading} /> register
         </span>

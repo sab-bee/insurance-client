@@ -29,12 +29,12 @@ const EstimateProceed = ({ service }) => {
 
   return (
     <>
-      <div className='container py-8'>
-        <h2 className='text-center text-2xl font-bold capitalize'>Get a quick estimate</h2>
-        <form onSubmit={handleSubmit(onSubmit)} className='lg:w-1/5 md:w-2/5 sm:w-1/2 mx-auto space-y-4 my-12'>
+      <div className='container py-10 bg-white p-10 rounded-lg shadow-lg shadow-zinc-200 my-12 lg:w-96 md:w-2/5 sm:w-1/2 mx-auto'>
+        <h2 className='text-center text-xl mb-6 font-bold capitalize'>Get a quick estimate</h2>
+        <form onSubmit={handleSubmit(onSubmit)} className='l space-y-4 '>
           <div className='flex flex-col gap-2'>
             <label htmlFor="name" className='font-medium'>Name</label>
-            <input value={user.displayName} disabled className='p-2 h-10 md:h-9 border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded' type="text" />
+            <input value={user.displayName} disabled className='p-2   border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded' type="text" />
           </div>
 
           <div className='flex flex-col gap-2'>
@@ -48,7 +48,7 @@ const EstimateProceed = ({ service }) => {
               </span>
             </label>
 
-            <input className='p-2 h-10 md:h-9 border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded' type="number" placeholder='enter your age'
+            <input className='p-2   border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded' type="number" placeholder='enter your age'
               {
               ...register('userAge', {
                 required: true,
@@ -62,12 +62,12 @@ const EstimateProceed = ({ service }) => {
 
           <div className='flex flex-col gap-2'>
             <label htmlFor="service" className='font-medium'>Service</label>
-            <input value={title} disabled className='p-2 h-10 md:h-9 border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded' type="text" />
+            <input value={title} disabled className='p-2   border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded' type="text" />
           </div>
 
           <div className='flex flex-col gap-2'>
             <label htmlFor="service" className='font-medium'>Coverage</label>
-            <select className='p-2 min-h-10 md:min-h-9 border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded'
+            <select className='p-2 min- md:min-h-9 border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded'
 
               {
               ...register('coverage')
@@ -79,7 +79,7 @@ const EstimateProceed = ({ service }) => {
           </div>
 
 
-          <button className='btn-primary-md w-full rounded h-10 md:h-9'>
+          <button className='btn-primary-md w-full rounded  '>
             <span className='flex justify-center'>
               <Spinner loading={loading} /> proceed
             </span>

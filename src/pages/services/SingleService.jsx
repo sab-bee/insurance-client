@@ -23,7 +23,7 @@ const SingleService = ({ service }) => {
           </h2>
         </div>
       </div>
-      <button className='btn-primary-md w-full h-10'
+      <button className='btn-primary-md w-full '
         onClick={() => navigate(`/estimate/${_id}`)}
       >take a look</button>
     </div>

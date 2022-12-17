@@ -11,7 +11,7 @@ const Estimate = () => {
 
   if (isLoading) return <Loader />
   return (
-    <div>
+    <div className='py-20'>
       <EstimateProceed service={service} />
     </div>
   )

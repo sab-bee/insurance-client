@@ -9,10 +9,10 @@ const Login = () => {
   const navigate = useNavigate()
   const { register, formState: { errors }, handleSubmit, reset } = useForm({ mode: 'onChange' });
   const onSubmit = (data) => login.handleLogin(data);
-  
+
   return (
-    <>
-      <form onSubmit={handleSubmit(onSubmit)} className='lg:w-1/5 md:w-2/5 sm:w-1/2 w-4/5 mx-auto space-y-4'>
+    <div className='bg-white p-10 rounded-2xl shadow-lg shadow-zinc-200 lg:w-96 md:w-1/3 sm:w-1/2 w-4/5 mx-auto'>
+      <form onSubmit={handleSubmit(onSubmit)} className='space-y-4'>
         {/* -----------email */}
         <div className='flex flex-col gap-2'>
           <label htmlFor="email" className='font-medium'>
@@ -24,7 +24,7 @@ const Login = () => {
               <p className='text-red-500 text-sm'>{errors.email?.message}</p>
             </div>
           </label>
-          <input className='p-2 h-10 md:h-9 border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded' type="email" placeholder='enter email address'
+          <input type="email" placeholder='enter email address'
             {...register("email", {
               required: true,
               pattern: {
@@ -45,23 +45,23 @@ const Login = () => {
               }
             </div>
           </label>
-          <input className='p-2 h-10 md:h-9 border-2 outline-none focus:border-zinc-400 transition-colors duration-300 rounded' type="password" placeholder='enter password'
+          <input type="password" placeholder='enter password'
             {...register('password', {
               required: true,
             })} />
         </div>
 
         {/* -------------actions */}
-        <button className='btn-primary-md w-full rounded h-10 md:h-9'>
+        <button className='btn-primary-md w-full rounded  '>
           <span className='flex justify-center'>
             <Spinner loading={login.eLoding} /> login
           </span>
         </button>
         <button type='button' className='underline w-fit mx-auto block' onClick={() => navigate('/account/register')}>create an account</button>
-        <button type='button' onClick={() => google.handleGoogleSign()} className='btn-neutral w-full rounded flex items-center justify-center gap-2 h-10 md:h-9'><FcGoogle className='text-2xl' /><span>signin with google</span></button>
+        <button type='button' onClick={() => google.handleGoogleSign()} className='btn-neutral w-full rounded flex items-center justify-center gap-2  '><FcGoogle className='text-2xl' /><span>signin with google</span></button>
       </form>
 
-    </>
+    </div>
   )
 }
 
