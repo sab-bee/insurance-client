@@ -31,7 +31,7 @@ const CARD_OPTIONS = {
   },
 };
 
-const PaymentForm = ({ insurancePackage, setPaid, setTransactionId }) => {
+const PaymentForm = ({ insurancePackage, setTransactionId }) => {
   const stripe = useStripe()
   const elements = useElements()
   const [clientSecret, setClientSecret] = useState('')
@@ -44,6 +44,7 @@ const PaymentForm = ({ insurancePackage, setPaid, setTransactionId }) => {
     email: '',
     name: '',
   });
+
 
   const handleDuePayment = (e) => {
     e.preventDefault()
@@ -89,10 +90,9 @@ const PaymentForm = ({ insurancePackage, setPaid, setTransactionId }) => {
         paid: true,
         transactionId: paymentIntent.client_secret,
         email: user.email,
-        pacakgeId: _id
+        packageId: _id
       }).then((res) => {
         setTransactionId(paymentIntent.client_secret)
-        setPaid(true)
         toast.success('payment complete', {
           id: toastId
         })
@@ -108,7 +108,7 @@ const PaymentForm = ({ insurancePackage, setPaid, setTransactionId }) => {
         <h2 className='text-center font-bold text-xl'>Transaction form</h2>
         <form onSubmit={handleDuePayment} className='space-y-4'>
           <div className='flex flex-col gap-2'>
-            <label htmlFor="name" className='font-medium'>Name
+            <label htmlFor="name" >Name
             </label>
             <input type="text" placeholder='card holder name'
               onBlur={(event) => setBillingDetails({ ...billingDetails, name: event.target.value })}
@@ -116,7 +116,7 @@ const PaymentForm = ({ insurancePackage, setPaid, setTransactionId }) => {
             />
           </div>
           <div className='flex flex-col gap-2'>
-            <label htmlFor="email" className='font-medium'>Email
+            <label htmlFor="email" >Email
             </label>
             <input type="email" placeholder='card holder emails'
               onBlur={(event) => setBillingDetails({ ...billingDetails, email: event.target.value })}
@@ -163,7 +163,7 @@ const PaymentForm = ({ insurancePackage, setPaid, setTransactionId }) => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
             exit={{ opacity: 0 }}>
-            <motion.div className='w-4/5 sm:w-[300px] min-h-[320px] bg-white p-4 rounded-xl  shadow-lg flex flex-col justify-between'
+            <motion.div className='w-4/5 sm:w-[300px] min-h-[320px] bg-white p-4 rounded-2xl shadow-lg flex flex-col justify-between'
               key={modal}
               onClick={(e) => e.stopPropagation()}
               initial={{ scale: .5 }}

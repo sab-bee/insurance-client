@@ -19,7 +19,7 @@ const Register = () => {
       <form onSubmit={handleSubmit(onSubmit)} className='space-y-4'>
         {/* ----------------name */}
         <div className='flex flex-col gap-2'>
-          <label htmlFor="name" className='font-medium'>
+          <label htmlFor="name">
             <div className='flex'>
               <p>Name</p>
               {
@@ -35,7 +35,7 @@ const Register = () => {
         </div>
         {/* -----------email */}
         <div className='flex flex-col gap-2'>
-          <label htmlFor="email" className='font-medium'>
+          <label htmlFor="email" >
             <div className='flex'>
               <p>Email</p>
               {
@@ -56,7 +56,7 @@ const Register = () => {
         </div>
         {/* ---------------password */}
         <div className='flex flex-col gap-2'>
-          <label htmlFor="password" className='font-medium'>
+          <label htmlFor="password" >
             <div className='flex'>
               <p>Password</p>
               {

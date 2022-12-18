@@ -29,16 +29,16 @@ const EstimateForm = ({ service }) => {
 
   return (
     <>
-      <div className='container py-10 bg-white p-10 rounded-lg shadow-lg shadow-zinc-200 my-12 lg:w-96 md:w-2/5 sm:w-1/2 mx-auto'>
+      <div className='container py-10 bg-white p-10 pb-5 rounded-2xl shadow-lg shadow-zinc-200 my-12 lg:w-96 md:w-2/5 sm:w-1/2 mx-auto'>
         <h2 className='text-center text-xl mb-6 font-bold capitalize'>Get a quick estimate</h2>
         <form onSubmit={handleSubmit(onSubmit)} className='l space-y-4 '>
           <div className='flex flex-col gap-2'>
-            <label htmlFor="name" className='font-medium'>Name</label>
+            <label htmlFor="name" >Name</label>
             <input value={user.displayName} disabled type="text" />
           </div>
 
           <div className='flex flex-col gap-2'>
-            <label htmlFor="userAge" className='font-medium'>
+            <label htmlFor="userAge" >
               <span className='flex'>
                 <span>Age</span>
                 {errors.userAge && <p className='text-red-500'>*</p>}
@@ -61,12 +61,12 @@ const EstimateForm = ({ service }) => {
           </div>
 
           <div className='flex flex-col gap-2'>
-            <label htmlFor="service" className='font-medium'>Service</label>
+            <label htmlFor="service">Service</label>
             <input value={title} disabled type="text" />
           </div>
 
           <div className='flex flex-col gap-2'>
-            <label htmlFor="service" className='font-medium'>Coverage</label>
+            <label htmlFor="service">Coverage</label>
             <select
               {
               ...register('coverage')
@@ -76,9 +76,7 @@ const EstimateForm = ({ service }) => {
               }
             </select>
           </div>
-
-
-          <button className='btn-primary-md w-full rounded  '>
+          <button className='btn-primary-md w-full rounded'>
             <span className='flex justify-center'>
               <Spinner loading={loading} /> proceed
             </span>

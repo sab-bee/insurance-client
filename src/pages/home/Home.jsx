@@ -16,7 +16,7 @@ const Home = () => {
             <Moto></Moto>
           </div>
         </div>
-        <div className='bg-secondary py-10'>
+        <div className='bg-white py-10'>
           <Contact></Contact>
         </div>
       </div>

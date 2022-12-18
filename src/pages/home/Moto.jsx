@@ -31,7 +31,7 @@ const Moto = () => {
           <div className='py-1 bg-secondary w-2 rounded-full'></div>
         </div>
       </div>
-      <div className='grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center'>
         {
           protections.map((protection, index) =>
             <div key={index} className='flex flex-col items-center gap-y-4 p-8 shadow-lg shadow-gray-200 rounded-xl hover:scale-105 transition-all ease-linear cursor-pointer bg-white'>

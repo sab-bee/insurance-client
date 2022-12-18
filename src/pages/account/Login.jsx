@@ -18,7 +18,7 @@ const Login = () => {
       <form onSubmit={handleSubmit(onSubmit)} className='space-y-4'>
         {/* -----------email */}
         <div className='flex flex-col gap-2'>
-          <label htmlFor="email" className='font-medium'>
+          <label htmlFor="email" >
             <div className='flex'>
               <p>Email</p>
               {
@@ -40,7 +40,7 @@ const Login = () => {
 
         {/* ---------------password */}
         <div className='flex flex-col gap-2'>
-          <label htmlFor="password" className='font-medium'>
+          <label htmlFor="password" >
             <div className='flex'>
               <p>Password</p>
               {

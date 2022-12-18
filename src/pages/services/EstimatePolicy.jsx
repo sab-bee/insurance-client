@@ -16,7 +16,7 @@ const EstimatePolicy = ({ policyPlan, setPolicyPlan }) => {
       transition={{ duration: 0.3, ease: 'easeOut' }}
       exit={{ opacity: 0 }}
     >
-      <motion.div key='modal' className='w-4/5 md:w-[500px] min-h-[250px] bg-white p-8 rounded-xl border border-primary mt-10 font-medium'
+      <motion.div key='modal' className='w-4/5 md:w-[500px] min-h-[250px] bg-white p-8 pb-5 rounded-2xl shadow-lg border mt-10 font-medium'
         onClick={(e) => e.stopPropagation()}
         initial={{ scale: 0.5, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}

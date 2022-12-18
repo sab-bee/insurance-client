@@ -60,26 +60,26 @@ const SubmitForm = ({ service }) => {
     })
   }
 
-  return <div className='lg:w-96 md:w-2/3 mx-auto space-y-4 my-8 md:my-12 p-10 bg-white shadow-lg shadow-zinc-200 rounded-2xl'>
+  return <div className='lg:w-96 md:w-2/3 mx-auto space-y-4 my-8 md:my-12 p-10 pb-5 bg-white shadow-lg shadow-zinc-200 rounded-2xl'>
     <form onSubmit={handleSubmit(onSubmit)} className='space-y-4'>
 
       {/* ------------name */}
       <div className='flex flex-col gap-2'>
-        <label htmlFor="Gender" className='font-medium'>Name</label>
+        <label htmlFor="Gender" >Name</label>
         <input disabled type="text" value={user.displayName}
         />
       </div>
 
       {/* ------------age */}
       <div className='flex flex-col gap-2'>
-        <label htmlFor="Gender" className='font-medium'>Age</label>
+        <label htmlFor="Gender" >Age</label>
         <input  disabled type="text" value={state.userAge}
         />
       </div>
 
       {/* ------------gender */}
       <div className='flex flex-col gap-2'>
-        <label htmlFor="Gender" className='font-medium'>Gender</label>
+        <label htmlFor="Gender" >Gender</label>
         <select 
           {
           ...register('gender')
@@ -92,7 +92,7 @@ const SubmitForm = ({ service }) => {
 
       {/* ----------coverage */}
       <div className='flex flex-col gap-2'>
-        <label htmlFor="Gender" className='font-medium'>Required Coverage</label>
+        <label htmlFor="Gender" >Required Coverage</label>
         <input className='buble h-2 rounded-lg appearance-none cursor-pointer bg-primary' type="range" min="5000000" max="40000000" step="5000000" value={coverage}
           onChange={({ target: { value: radius } }) => {
             setCoverage(radius);
@@ -105,7 +105,7 @@ const SubmitForm = ({ service }) => {
 
       {/* ----------income */}
       <div className='flex flex-col gap-2'>
-        <label htmlFor="yearlyIncome" className='font-medium'>Yearly Income</label>
+        <label htmlFor="yearlyIncome" >Yearly Income</label>
         <input className='cov h-2 rounded-lg appearance-none cursor-pointer bg-primary' type="range" min="1000000" max="20000000" step="500000" value={yearlyIncome}
           onChange={({ target: { value: radius } }) => {
             setYearlyIncome(radius);
@@ -118,7 +118,7 @@ const SubmitForm = ({ service }) => {
 
       {/* ----------spend */}
       <div className='flex flex-col gap-2'>
-        <label htmlFor="monthlySpend" className='font-medium'>Monthly Spend</label>
+        <label htmlFor="monthlySpend" >Monthly Spend</label>
         <input className='cov h-2 rounded-lg appearance-none cursor-pointer bg-primary' type="range" min="30000" max="500000" step="10000" value={monthlySpend}
           onChange={({ target: { value: radius } }) => {
             setMonthlySpend(radius);
@@ -131,7 +131,7 @@ const SubmitForm = ({ service }) => {
 
       {/* ------------habit */}
       <div className='flex flex-col gap-2'>
-        <label htmlFor="habit" className='font-medium'>Do you smoke or drink?</label>
+        <label htmlFor="habit" >Do you smoke or drink?</label>
         <select
           {
           ...register('habit')
@@ -144,7 +144,7 @@ const SubmitForm = ({ service }) => {
       </div>
       {/* ------------maritalStatus */}
       <div className='flex flex-col gap-2'>
-        <label htmlFor="maritalStatus" className='font-medium'>What's your marital status?</label>
+        <label htmlFor="maritalStatus" >What's your marital status?</label>
         <select 
 
           {
