@@ -114,9 +114,9 @@ const BannerSVG = () => {
       </g>
       <defs>
         <linearGradient id="paint0_linear_3_2" x1="326.139" y1="496.485" x2="326.139" y2="45.8534" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#808080" stopOpacity="0.25" />
-          <stop offset="0.54" stop-color="#808080" stopOpacity="0.12" />
-          <stop offset="1" stop-color="#808080" stopOpacity="0.1" />
+          <stop stopColor="#808080" stopOpacity="0.25" />
+          <stop offset="0.54" stopColor="#808080" stopOpacity="0.12" />
+          <stop offset="1" stopColor="#808080" stopOpacity="0.1" />
         </linearGradient>
         <clipPath id="clip0_3_2">
           <rect width="693.586" height="500" fill="white" />

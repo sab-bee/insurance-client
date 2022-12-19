@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import CustomLink from './CustomLink'
 import { CgMenuLeft, CgClose } from "react-icons/cg";
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../auth/firebase.init';
 import { signOut } from 'firebase/auth';

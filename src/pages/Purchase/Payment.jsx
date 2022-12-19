@@ -20,13 +20,11 @@ const Payment = () => {
   const [packagePaid, setPackagePaid] = useState(false)
   const [wait, setWait] = useState(true)
   const navigate = useNavigate()
-
+  
   const { data, isLoading } = useQuery(['paid'], () => axiosPrivate('/subscription/paid').then((res) => {
     if (res.data) {
-      if (res.data.subscription?.packageId == _id) {
-        setPackagePaid(res.data.subscription?.paid)
-        setWait(false)
-      }
+      setWait(false)
+      setPackagePaid(res.data.subscription?.packageId == _id)
     }
     return res.data
   }))
@@ -38,7 +36,7 @@ const Payment = () => {
     setCopied(true)
     setTimeout(() => {
       setCopied(false)
-    }, 700);
+    }, 2000);
   }
 
   return (
@@ -48,7 +46,7 @@ const Payment = () => {
         {
           !packagePaid && <div className='lg:col-span-2'>
             <Elements stripe={stripeTestPromise}>
-              <PaymentForm insurancePackage={{ premium, _id }} setTransactionId={setTransactionId} />
+              <PaymentForm insurancePackage={{ premium, _id }} setTransactionId={setTransactionId} setPackagePaid={setPackagePaid} />
             </Elements>
           </div>
         }
@@ -69,13 +67,13 @@ const Payment = () => {
               {
                 packagePaid && <div className='relative'>
                   <p className='mt-4 text-zinc-400'>Transaction id</p>
-                  <div className=' bg-zinc-100 p-2 rounded-md text-zinc-300 cursor-pointer hover:text-zinc-500 transition-all duration-200'>
-                    <div className='overflow-hidden' onClick={() => copyTransaction()}>
-                      {data?.subscription.transactionId}
+                  <div className='peer bg-zinc-100 p-2 rounded-md text-zinc-300 cursor-pointer hover:text-zinc-500 transition-all duration-200' onClick={() => copyTransaction()}>
+                    <div className='overflow-hidden'>
+                      {data?.subscription?.transactionId}
                     </div>
                   </div>
                   {
-                    copied && <div className='absolute right-0 -top-4 bg-zinc-100 px-2 py-1 rounded-md'>
+                    copied && <div className='peer-hover:block absolute right-0 -top-4 bg-zinc-100 px-2 py-1 rounded-md hidden'>
                       copied
                     </div>
                   }

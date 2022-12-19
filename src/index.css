@@ -32,7 +32,7 @@ textarea {
   border-bottom: 1px solid #d6d9dd;
 }
 label {
-  color: #8b8b8b
+  color: #8b8b8b;
 }
 
 @layer components {
@@ -48,22 +48,22 @@ label {
   }
 
   .btn-primary-md {
-    @apply bg-primary text-white shadow-md shadow-primaryShadow font-medium rounded-md w-20 h-12 hover:bg-secondary hover:shadow-gray-300 transition-all ease-linear;
+    @apply bg-primary text-white shadow-md shadow-primaryShadow font-medium rounded w-20 h-12 hover:bg-secondary hover:shadow-gray-300 transition-all ease-linear;
   }
   .btn-deny-md {
-    @apply bg-[#fcfcfc] shadow-lg font-medium rounded-md w-20 shadow-gray-100 hover:bg-gray-50 h-12 transition-colors ease-linear;
+    @apply bg-[#fcfcfc] shadow-lg font-medium rounded w-20 shadow-gray-100 hover:bg-gray-50 h-12 transition-colors ease-linear;
   }
 
   .btn-primary-lg {
-    @apply bg-primary text-white shadow-md shadow-primaryShadow font-medium rounded-md w-28 h-12 hover:bg-secondary hover:shadow-gray-300 transition-all ease-linear;
+    @apply bg-primary text-white shadow-md shadow-primaryShadow font-medium rounded w-28 h-12 hover:bg-secondary hover:shadow-gray-300 transition-all ease-linear;
   }
 
   .btn-secondary-md {
-    @apply border  font-medium rounded-md w-20 h-12  transition-all ease-linear;
+    @apply border  font-medium rounded w-20 h-12  transition-all ease-linear;
   }
 
   .btn-neutral {
-    @apply border-2 shadow-lg font-medium rounded-md w-20 shadow-gray-100 hover:bg-gray-50 h-12 transition-colors ease-linear;
+    @apply border-2 shadow-lg font-medium rounded w-20 shadow-gray-100 hover:bg-gray-50 h-12 transition-colors ease-linear;
   }
 
   .btn-primary-md-mob {

@@ -21,13 +21,16 @@ const useFirebase = () => {
 
   const [user] = useAuthState(auth);
   const location = useLocation();
+  console.log(location);
   const navigate = useNavigate();
 
   const from = location.state?.from?.pathname || "/";
+  const obj = location.state?.from?.state || {};
+
   useEffect(() => {
     if (user) {
       toast.success("logged in");
-      navigate(from, { replace: true });
+      navigate(from, { state: obj }, { replace: true });
       const email = user?.email;
 
       axiosPublic

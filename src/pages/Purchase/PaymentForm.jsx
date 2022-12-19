@@ -7,6 +7,7 @@ import { auth } from '../../auth/firebase.init';
 import { motion, AnimatePresence } from 'framer-motion';
 import Card from '../../assets/Card';
 import { useNavigate } from 'react-router';
+import Spinner from '../../components/Spinner';
 
 const CARD_OPTIONS = {
   iconStyle: 'solid',
@@ -25,17 +26,18 @@ const CARD_OPTIONS = {
       },
     },
     invalid: {
-      iconColor: '#ffc7ee',
-      color: '#ffc7ee',
+      iconColor: '#ff1f1f',
+      color: '#ff1f1f',
     },
   },
 };
 
-const PaymentForm = ({ insurancePackage, setTransactionId }) => {
+const PaymentForm = ({ insurancePackage, setTransactionId, setPackagePaid }) => {
   const stripe = useStripe()
   const elements = useElements()
   const [clientSecret, setClientSecret] = useState('')
   const [modal, setModal] = useState(false)
+  const [issueTransactionLoad, setIssueTransactionLoad] = useState(false)
   const navigate = useNavigate()
 
   const { premium, _id } = insurancePackage
@@ -48,8 +50,13 @@ const PaymentForm = ({ insurancePackage, setTransactionId }) => {
 
   const handleDuePayment = (e) => {
     e.preventDefault()
-    axiosPrivate(`/subscription/payment/${premium}`).then((res) => setClientSecret(res.data.clientSecret))
-    setModal(true)
+    setIssueTransactionLoad(true)
+    axiosPrivate(`/subscription/payment/${premium}`).then((res) => {
+      setClientSecret(res.data.clientSecret)
+      setIssueTransactionLoad(false)
+      setModal(true)
+    })
+
   }
 
   const handleConfirmPayment = async (event) => {
@@ -90,9 +97,11 @@ const PaymentForm = ({ insurancePackage, setTransactionId }) => {
         paid: true,
         transactionId: paymentIntent.client_secret,
         email: user.email,
-        packageId: _id
+        amount: Number(premium),
+        packageId: _id,
       }).then((res) => {
         setTransactionId(paymentIntent.client_secret)
+        setPackagePaid(true)
         toast.success('payment complete', {
           id: toastId
         })
@@ -146,7 +155,7 @@ const PaymentForm = ({ insurancePackage, setTransactionId }) => {
 
           <div className='grid grid-cols-2 gap-x-4'>
             <button type='button' className='btn-deny-md w-full' onClick={() => navigate('/service')}>Cancel</button>
-            <button className='btn-primary-md w-full'>Pay</button>
+            <button className='btn-primary-md w-full flex justify-center items-center'><Spinner loading={issueTransactionLoad} /> Pay</button>
           </div>
         </form>
       </div>

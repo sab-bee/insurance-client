@@ -13,7 +13,7 @@ const Login = () => {
   const onSubmit = (data) => login.handleLogin(data);
 
   return (
-    <div className='bg-white p-8 rounded-2xl shadow-lg shadow-zinc-200 lg:w-96 md:w-1/3 sm:w-1/2 w-4/5 mx-auto'>
+    <div className='bg-white p-5 rounded-2xl shadow-lg shadow-zinc-200 lg:w-96 md:w-1/3 sm:w-1/2 w-4/5 mx-auto'>
       <h2 className="text-center font-bold text-lg mb-4">Login</h2>
       <form onSubmit={handleSubmit(onSubmit)} className='space-y-4'>
         {/* -----------email */}
@@ -55,7 +55,7 @@ const Login = () => {
         </div>
 
         {/* -------------actions */}
-        <button className='btn-primary-md w-full rounded  '>
+        <button className='btn-primary-md w-full'>
           <span className='flex justify-center'>
             <Spinner loading={login.eLoding} /> login
           </span>

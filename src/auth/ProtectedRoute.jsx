@@ -6,9 +6,7 @@ import { auth } from './firebase.init'
 const ProtectedRoute = ({ children }) => {
   const [user, loading] = useAuthState(auth)
   const location = useLocation()
-
   if (loading) return
-
   if (!user) {
     return <Navigate to='/account' state={{ from: location }} replace></Navigate>
   }

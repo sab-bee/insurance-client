@@ -29,9 +29,9 @@ const EstimateForm = ({ service }) => {
 
   return (
     <>
-      <div className='container py-10 bg-white p-10 pb-5 rounded-2xl shadow-lg shadow-zinc-200 my-12 lg:w-96 md:w-2/5 sm:w-1/2 mx-auto'>
+      <div className='container bg-white p-5 rounded-2xl shadow-lg shadow-zinc-200 my-12 lg:w-96 md:w-2/5 sm:w-1/2 mx-auto'>
         <h2 className='text-center text-xl mb-6 font-bold capitalize'>Get a quick estimate</h2>
-        <form onSubmit={handleSubmit(onSubmit)} className='l space-y-4 '>
+        <form onSubmit={handleSubmit(onSubmit)} className='space-y-4 '>
           <div className='flex flex-col gap-2'>
             <label htmlFor="name" >Name</label>
             <input value={user.displayName} disabled type="text" />
@@ -76,7 +76,7 @@ const EstimateForm = ({ service }) => {
               }
             </select>
           </div>
-          <button className='btn-primary-md w-full rounded'>
+          <button className='btn-primary-md w-full'>
             <span className='flex justify-center'>
               <Spinner loading={loading} /> proceed
             </span>
