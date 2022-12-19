@@ -93,12 +93,10 @@ const PaymentForm = ({ insurancePackage, setTransactionId, setPackagePaid }) => 
         id: toastId,
       })
     } else {
-      axiosPrivate.post('/subscription/payment/save', {
+      axiosPrivate.post(`/subscription/pay/${_id}`, {
         paid: true,
         transactionId: paymentIntent.client_secret,
         email: user.email,
-        amount: Number(premium),
-        packageId: _id,
       }).then((res) => {
         setTransactionId(paymentIntent.client_secret)
         setPackagePaid(true)
@@ -140,7 +138,7 @@ const PaymentForm = ({ insurancePackage, setTransactionId, setPackagePaid }) => 
           </div>
           <div className='grid grid-cols-2 gap-x-2 font-medium'>
             <div className='space-y-2'>
-              <label htmlFor="exp" >Exp. Date</label>
+              <label htmlFor="exp" >Expiry Date</label>
               <div className='input'>
                 <CardExpiryElement options={CARD_OPTIONS} />
               </div>

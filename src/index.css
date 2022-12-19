@@ -67,11 +67,11 @@ label {
   }
 
   .btn-primary-md-mob {
-    @apply bg-primary text-white shadow-md shadow-blue-200 font-medium rounded-full w-full  hover:bg-gray-800 hover:shadow-none transition-colors ease-linear;
+    @apply bg-primary text-white shadow-md shadow-primaryShadow font-medium rounded w-20 h-12 hover:bg-secondary hover:shadow-gray-300 transition-all ease-linear;
   }
 
   .btn-secondary-mob {
-    @apply border border-primary text-primary font-medium rounded-full w-full   transition-colors ease-linear;
+    @apply border  font-medium rounded w-20 h-12  transition-all ease-linear;
   }
 }
 

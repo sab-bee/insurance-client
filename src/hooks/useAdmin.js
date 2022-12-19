@@ -1,14 +1,15 @@
-import { useQuery } from "@tanstack/react-query"
-import { axiosPrivate } from "../api/axiosPrivate"
+import { useQuery } from "@tanstack/react-query";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { axiosPrivate } from "../api/axiosPrivate";
+import { auth } from "../auth/firebase.init";
 
-export const useAdmin = (user) => {
-  const {
-    data: admin,
-    isLoading,
-    isError,
-  } = useQuery(['admin', user.email], () =>
-    axiosPrivate(`/admin?email=${user.email}`).then((res) => res.data?.admin)
-  )
+export const useAdmin = () => {
+  const [user] = useAuthState(auth);
+  const { data, isLoading } = useQuery(["user"], () =>
+    axiosPrivate(`/user/info/${user.email}`).then((res) => {
+      return res.data;
+    })
+  );
 
-  return { admin, isLoading, isError }
-}
+  return { data, isLoading };
+};

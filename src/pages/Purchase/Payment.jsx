@@ -4,9 +4,6 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import PaymentForm from './PaymentForm';
 import { FiArrowRight } from "react-icons/fi";
-import { axiosPrivate } from '../../api/axiosPrivate';
-import { useQuery } from '@tanstack/react-query';
-import Loader from '../../components/Loader';
 
 const PUBLIC_KEY =
   "pk_test_51L1Dp8J48oi4JQCJngh2eIDVprg1z8uRziP6OqMWowsDcPLfOfAikPLhWyPqjDuG3lnyh8p3vjf6gRAZHjM8SFzn00FkVLnBj3";
@@ -18,18 +15,23 @@ const Payment = () => {
   const [transactionId, setTransactionId] = useState('')
   const [copied, setCopied] = useState(false)
   const [packagePaid, setPackagePaid] = useState(false)
-  const [wait, setWait] = useState(true)
+  const [timer, setTimer] = useState(10)
   const navigate = useNavigate()
-  
-  const { data, isLoading } = useQuery(['paid'], () => axiosPrivate('/subscription/paid').then((res) => {
-    if (res.data) {
-      setWait(false)
-      setPackagePaid(res.data.subscription?.packageId == _id)
-    }
-    return res.data
-  }))
 
-  if (isLoading || wait) return <Loader></Loader>
+  useEffect(() => {
+    if (packagePaid) {
+      const intervalId = setInterval(() => {
+        setTimer(timer - 1)
+      }, 1000);
+
+      if (timer <= 0) {
+        navigate('/dashboard')
+        clearInterval(intervalId)
+      }
+      return () => clearInterval(intervalId)
+    }
+
+  }, [packagePaid, timer])
 
   const copyTransaction = () => {
     navigator.clipboard.writeText(transactionId)
@@ -59,7 +61,7 @@ const Payment = () => {
               <h2 className='font-bold mt-4'>Payment incomplete</h2>
               <p className='text-sm'>You can only buy this package once. once it bought </p>
             </div>
-            : <div className='rounded-2xl shadow-lg shadow-zinc-200 md:pt-10 md:pb-5 md:px-12 p-8 lg:w-96 sm:w-2/4 w-[90%] mx-auto'>
+            : <div className='rounded-2xl bg-white shadow-lg shadow-zinc-200 md:pt-10 md:pb-5 md:px-12 p-8 lg:w-96 sm:w-2/4 w-[90%] mx-auto'>
               <span className='font-medium bg-green-100 text-green-500 px-4 py-1 rounded-full'>Paid</span>
               <h2 className='text-2xl font-bold text-primary mt-4'>${premium.toLocaleString()}</h2>
               <h2 className='font-bold mt-4'>Payment successful !</h2>
@@ -69,7 +71,7 @@ const Payment = () => {
                   <p className='mt-4 text-zinc-400'>Transaction id</p>
                   <div className='peer bg-zinc-100 p-2 rounded-md text-zinc-300 cursor-pointer hover:text-zinc-500 transition-all duration-200' onClick={() => copyTransaction()}>
                     <div className='overflow-hidden'>
-                      {data?.subscription?.transactionId}
+                      {transactionId}
                     </div>
                   </div>
                   {
@@ -83,6 +85,7 @@ const Payment = () => {
                 <span>dashboard</span>
                 <FiArrowRight className='text-xl' />
               </button>
+              <h2 className='text-center mt-4 text-orange-400 font-medium'>redirecting to dashboard in {timer} seconds</h2>
             </div>
         }
       </div>

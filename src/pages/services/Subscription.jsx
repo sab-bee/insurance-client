@@ -34,7 +34,6 @@ const SubmitForm = ({ service }) => {
   const [user] = useAuthState(auth)
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
-
   useEffect(() => {
     const cov = document.querySelector('.cov');
     const yinc = document.querySelector('.yinc');
@@ -56,7 +55,7 @@ const SubmitForm = ({ service }) => {
     setLoading(true)
     axiosPrivate.post('/service/package', { ...data, coverage, yearlyIncome, monthlySpend, userAge: state.userAge, _id: service._id }).then((res) => {
       setLoading(false)
-      navigate('/payment', { state: res.data })
+      navigate('/dashboard')
     })
   }
 
@@ -73,14 +72,14 @@ const SubmitForm = ({ service }) => {
       {/* ------------age */}
       <div className='flex flex-col gap-2'>
         <label htmlFor="Gender" >Age</label>
-        <input  disabled type="text" value={state.userAge}
+        <input disabled type="text" value={state.userAge}
         />
       </div>
 
       {/* ------------gender */}
       <div className='flex flex-col gap-2'>
         <label htmlFor="Gender" >Gender</label>
-        <select 
+        <select
           {
           ...register('gender')
           }>
@@ -145,7 +144,7 @@ const SubmitForm = ({ service }) => {
       {/* ------------maritalStatus */}
       <div className='flex flex-col gap-2'>
         <label htmlFor="maritalStatus" >What's your marital status?</label>
-        <select 
+        <select
 
           {
           ...register('maritalStatus')

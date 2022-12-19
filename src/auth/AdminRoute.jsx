@@ -4,13 +4,13 @@ import { Navigate } from "react-router-dom"
 import { useAdmin } from "../hooks/useAdmin"
 import { auth } from "./firebase.init"
 
-export function RequireAdmin({ children }) {
+export function AdminRoute({ children }) {
   const [user, loading] = useAuthState(auth)
-  const { admin, isLoding } = useAdmin(user)
+  const { data, isLoding } = useAdmin()
 
   if (loading || isLoding) return
 
-  if (!user || !admin) {
+  if (!user || !data.admin) {
     toast.error('unauthorized admin access', {
       id: 2
     })

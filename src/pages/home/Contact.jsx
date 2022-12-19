@@ -20,7 +20,7 @@ const ViaEmail = () => {
     <div>
       <textarea className='w-full rounded mt-2 p-4 outline-none h-28' rows="5" placeholder='write your query....'></textarea>
     </div>
-    <button className="btn-primary-md w-28 mt-2 ml-auto block">send email</button>
+    <button className="btn-primary-md w-28 mt-2 mr-auto block">send email</button>
   </div>
 }
 
