@@ -17,6 +17,7 @@ import Estimate from './pages/services/Estimate'
 import Services from './pages/services/Services'
 import Subscription from './pages/services/Subscription'
 import { AdminRoute } from './auth/AdminRoute'
+import { UserRoute } from './auth/UserRoute'
 
 const App = () => {
   useEffect(() => {
@@ -56,7 +57,7 @@ const App = () => {
           <Route path='/dashboard' element={<ProtectedRoute><Dashboard /></ProtectedRoute>}>
             <Route path='admin' element={<AdminRoute><Admin /></AdminRoute>}></Route>
             {/* <Route path='agent' element={<Admin></Admin>}></Route> */}
-            <Route index element={<Client></Client>}></Route>
+            <Route index element={<UserRoute><Client /></UserRoute>}></Route>
           </Route>
           <Route path='/payment' element={<ProtectedRoute><Payment></Payment></ProtectedRoute>}></Route>
           <Route path='*' element={<NotFound />}></Route>

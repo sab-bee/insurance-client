@@ -15,13 +15,8 @@ const Dashboard = () => {
     <div className='w-3/4 mx-auto pt-8'>
       <h2 className='text-center text-xl font-bold mb-8'>Dashboard</h2>
       <div className='border border-primary shadow-lg shadow-zinc-100 px-2 py-2 text-primary rounded-xl flex justify-center gap-x-2 w-fit mx-auto'>
-
-        {data.admin &&
-          <>
-            <DashLink to='/dashboard/admin'>Admin</DashLink>
-            <DashLink to='/dashboard/agent'>Agent</DashLink>
-          </>
-        }
+        <DashLink to='/dashboard/admin'>Admin</DashLink>
+        <DashLink to='/dashboard/agent'>Agent</DashLink>
         <DashLink to='/dashboard'>Client</DashLink>
 
       </div>

@@ -25,7 +25,7 @@ const PackOfIndividualClient = ({ unPack, refetch }) => {
   }
   return <div>
     <h2>
-      {packageName}
+      {packageName} plan package
 
     </h2>
     <button className='btn-primary-md' onClick={() => setModal(true)}>
